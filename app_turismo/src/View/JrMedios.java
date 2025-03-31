@@ -14,6 +14,7 @@ import java.awt.Font;
 import javax.swing.JButton;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import javax.swing.ImageIcon;
 
 public class JrMedios extends JFrame {
 
@@ -23,7 +24,11 @@ public class JrMedios extends JFrame {
 	private JTextField txtObservacion;
 	private JLabel lblNewLabel;
 	private JButton btnGuardar;
-	private JTextField txtidmedio;
+	private JTextField txtidtipomedio;
+	private JLabel lblNewLabel_1;
+	private JTextField txtidmedios;
+	private JButton btnEliminar;
+	Medios cr = new Medios();
 
 	/**
 	 * Launch the application.
@@ -63,12 +68,12 @@ public class JrMedios extends JFrame {
 		
 		txtNombre = new JTextField();
 		txtNombre.setColumns(10);
-		txtNombre.setBounds(161, 82, 158, 20);
+		txtNombre.setBounds(144, 82, 158, 20);
 		contentPane.add(txtNombre);
 		
 		txtObservacion = new JTextField();
 		txtObservacion.setColumns(10);
-		txtObservacion.setBounds(161, 143, 158, 20);
+		txtObservacion.setBounds(144, 143, 158, 20);
 		contentPane.add(txtObservacion);
 		
 		lblNewLabel = new JLabel("MEDIOS");
@@ -77,23 +82,44 @@ public class JrMedios extends JFrame {
 		contentPane.add(lblNewLabel);
 		
 		btnGuardar = new JButton("Guardar");
+		btnGuardar.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\Downloads\\guardar-datos (2).png"));
 		btnGuardar.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				Medios cr = new Medios();
-				cr.create(txtNombre.getText(), txtObservacion.getText(), Integer.parseInt(txtidmedio.getText()));
+				
+				cr.create(txtNombre.getText(), txtObservacion.getText(), Integer.parseInt(txtidtipomedio.getText()));
 			}
 		});
-		btnGuardar.setBounds(196, 256, 89, 23);
+		btnGuardar.setBounds(57, 252, 89, 73);
 		contentPane.add(btnGuardar);
 		
-		JLabel lblidmedio = new JLabel("ID Medios");
-		lblidmedio.setBounds(57, 204, 46, 14);
+		JLabel lblidmedio = new JLabel("ID_Tipo_Medios");
+		lblidmedio.setBounds(57, 204, 89, 14);
 		contentPane.add(lblidmedio);
 		
-		txtidmedio = new JTextField();
-		txtidmedio.setBounds(161, 201, 86, 20);
-		contentPane.add(txtidmedio);
-		txtidmedio.setColumns(10);
+		txtidtipomedio = new JTextField();
+		txtidtipomedio.setBounds(159, 201, 86, 20);
+		contentPane.add(txtidtipomedio);
+		txtidtipomedio.setColumns(10);
+		
+		lblNewLabel_1 = new JLabel("ID_Medios");
+		lblNewLabel_1.setBounds(372, 85, 80, 14);
+		contentPane.add(lblNewLabel_1);
+		
+		txtidmedios = new JTextField();
+		txtidmedios.setBounds(358, 110, 86, 20);
+		contentPane.add(txtidmedios);
+		txtidmedios.setColumns(10);
+		
+		btnEliminar = new JButton("Eliminar");
+		btnEliminar.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				cr.delete(Integer.parseInt(txtidmedios.getText()));
+			}
+		});
+		btnEliminar.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\Downloads\\eliminar (2).png"));
+		btnEliminar.setBounds(358, 158, 89, 83);
+		contentPane.add(btnEliminar);
 	}
 }

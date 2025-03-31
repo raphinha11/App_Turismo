@@ -14,6 +14,7 @@ import javax.swing.JButton;
 import java.awt.Font;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import javax.swing.ImageIcon;
 
 public class JrPromotores extends JFrame {
 
@@ -28,6 +29,8 @@ public class JrPromotores extends JFrame {
 	private JTextField txtCorreopersonal;
 	private JTextField txtCorreocorp;
 	private JTextField txtFechanacimiento;
+	Promotores cr = new Promotores();
+	private JTextField txtidpromotor;
 
 	/**
 	 * Launch the application.
@@ -50,7 +53,7 @@ public class JrPromotores extends JFrame {
 	 */
 	public JrPromotores() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 654, 470);
+		setBounds(100, 100, 677, 513);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
@@ -139,22 +142,43 @@ public class JrPromotores extends JFrame {
 		contentPane.add(txtFechanacimiento);
 		
 		JButton btnNewButton_1 = new JButton("Guardar");
+		btnNewButton_1.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\Downloads\\guardar-datos (2).png"));
 		btnNewButton_1.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				Promotores cr = new Promotores();
+				
 				cr.create(txtTipodocumento.getText(), Integer.parseInt(txtNumerodocumento.getText()), txtNombre.getText(), txtapellido.getText(), 
 				txtDireccion.getText(), txtTelefono.getText(), txtCorreopersonal.getText(), txtCorreocorp.getText(), txtFechanacimiento.getText());
 				
 			}
 		});
-		btnNewButton_1.setBounds(467, 204, 89, 23);
+		btnNewButton_1.setBounds(69, 379, 89, 84);
 		contentPane.add(btnNewButton_1);
 		
 		JLabel lblNewLabel = new JLabel("Promotores");
 		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		lblNewLabel.setBounds(250, 11, 103, 26);
 		contentPane.add(lblNewLabel);
+		
+		JLabel lblNewLabel_1 = new JLabel("ID_Promotor");
+		lblNewLabel_1.setBounds(500, 51, 86, 14);
+		contentPane.add(lblNewLabel_1);
+		
+		txtidpromotor = new JTextField();
+		txtidpromotor.setBounds(488, 76, 86, 20);
+		contentPane.add(txtidpromotor);
+		txtidpromotor.setColumns(10);
+		
+		JButton btneliminar = new JButton("Eliminar");
+		btneliminar.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				cr.delete(Integer.parseInt(txtidpromotor.getText()));
+			}
+		});
+		btneliminar.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\Downloads\\eliminar (2).png"));
+		btneliminar.setBounds(485, 126, 89, 84);
+		contentPane.add(btneliminar);
 	}
 
 }

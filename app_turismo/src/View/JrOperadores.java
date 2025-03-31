@@ -14,6 +14,7 @@ import javax.swing.JButton;
 import java.awt.Font;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import javax.swing.ImageIcon;
 
 public class JrOperadores extends JFrame {
 
@@ -27,6 +28,8 @@ public class JrOperadores extends JFrame {
 	private JTextField txtTelefono;
 	private JTextField txtCorreo;
 	private JTextField txtidvehiculo;
+	private JTextField txtidoperadores;
+	Operadores cr = new Operadores();
 
 	/**
 	 * Launch the application.
@@ -49,7 +52,7 @@ public class JrOperadores extends JFrame {
 	 */
 	public JrOperadores() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 584, 420);
+		setBounds(100, 100, 603, 455);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
@@ -120,15 +123,16 @@ public class JrOperadores extends JFrame {
 		contentPane.add(txtCorreo);
 		
 		JButton btnGuardar = new JButton("Guardar");
+		btnGuardar.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\Downloads\\guardar-datos (2).png"));
 		btnGuardar.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				Operadores cr = new Operadores();
+				
 				cr.create(txtTipodocumento.getText(), Integer.parseInt(txtNumerodocumento.getText()), txtNombre.getText(),
 				txtApellido.getText(), txtDireccion.getText(), txtTelefono.getText(), txtCorreo.getText(), Integer.parseInt(txtidvehiculo.getText()));
 			}
 		});
-		btnGuardar.setBounds(252, 324, 89, 23);
+		btnGuardar.setBounds(68, 310, 89, 82);
 		contentPane.add(btnGuardar);
 		
 		JLabel lblNewLabel = new JLabel("Operadores");
@@ -144,5 +148,25 @@ public class JrOperadores extends JFrame {
 		txtidvehiculo.setBounds(420, 100, 86, 20);
 		contentPane.add(txtidvehiculo);
 		txtidvehiculo.setColumns(10);
+		
+		JLabel lblNewLabel_1 = new JLabel("ID_Operadores");
+		lblNewLabel_1.setBounds(430, 138, 86, 12);
+		contentPane.add(lblNewLabel_1);
+		
+		txtidoperadores = new JTextField();
+		txtidoperadores.setBounds(420, 171, 86, 20);
+		contentPane.add(txtidoperadores);
+		txtidoperadores.setColumns(10);
+		
+		JButton btnEliminar = new JButton("Eliminar");
+		btnEliminar.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				cr.delete(Integer.parseInt(txtidoperadores.getText()));
+			}
+		});
+		btnEliminar.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\Downloads\\eliminar (2).png"));
+		btnEliminar.setBounds(420, 216, 89, 77);
+		contentPane.add(btnEliminar);
 	}
 }

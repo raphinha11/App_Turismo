@@ -15,6 +15,7 @@ import java.awt.Font;
 import javax.swing.JButton;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import javax.swing.ImageIcon;
 
 public class JrAgencias extends JFrame {
 
@@ -28,6 +29,8 @@ public class JrAgencias extends JFrame {
 	private JLabel lblNewLabel;
 	private JButton btnGuardar;
 	private JTextField txtidcompania;
+	private JTextField txtidagencia;
+	Agencias cr = new Agencias();
 
 	/**
 	 * Launch the application.
@@ -83,15 +86,15 @@ public class JrAgencias extends JFrame {
 		contentPane.add(txtWeb);
 		
 		JLabel lblNombre = new JLabel("Nombre");
-		lblNombre.setBounds(67, 63, 46, 14);
+		lblNombre.setBounds(67, 63, 56, 14);
 		contentPane.add(lblNombre);
 		
 		JLabel lblDireccion = new JLabel("Direccion");
-		lblDireccion.setBounds(67, 110, 46, 14);
+		lblDireccion.setBounds(67, 110, 56, 14);
 		contentPane.add(lblDireccion);
 		
 		JLabel lblTelefono = new JLabel("Telefono");
-		lblTelefono.setBounds(67, 157, 46, 14);
+		lblTelefono.setBounds(67, 157, 56, 14);
 		contentPane.add(lblTelefono);
 		
 		JLabel lblCorreo = new JLabel("Correo");
@@ -108,14 +111,15 @@ public class JrAgencias extends JFrame {
 		contentPane.add(lblNewLabel);
 		
 		btnGuardar = new JButton("Guardar");
+		btnGuardar.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\Downloads\\guardar-datos (2).png"));
 		btnGuardar.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				Agencias cr = new Agencias();
+				
 				cr.create(txtNombre.getText(), txtDireccion.getText(), txtTelefono.getText(), txtCorreo.getText(), txtWeb.getText(), Integer.parseInt(txtidcompania.getText()));
 			}
 		});
-		btnGuardar.setBounds(273, 340, 89, 23);
+		btnGuardar.setBounds(273, 288, 111, 80);
 		contentPane.add(btnGuardar);
 		
 		txtidcompania = new JTextField();
@@ -126,5 +130,25 @@ public class JrAgencias extends JFrame {
 		JLabel lblidcompania = new JLabel("ID compañia");
 		lblidcompania.setBounds(67, 288, 80, 14);
 		contentPane.add(lblidcompania);
+		
+		JLabel lblNewLabel_1 = new JLabel("ID_Agencia");
+		lblNewLabel_1.setBounds(513, 63, 80, 14);
+		contentPane.add(lblNewLabel_1);
+		
+		txtidagencia = new JTextField();
+		txtidagencia.setBounds(502, 88, 86, 20);
+		contentPane.add(txtidagencia);
+		txtidagencia.setColumns(10);
+		
+		JButton btnEliminar = new JButton("Eliminar");
+		btnEliminar.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				cr.delete(Integer.parseInt(txtidagencia.getText()));
+			}
+		});
+		btnEliminar.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\Downloads\\eliminar (2).png"));
+		btnEliminar.setBounds(499, 140, 89, 80);
+		contentPane.add(btnEliminar);
 	}
 }

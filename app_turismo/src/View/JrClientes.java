@@ -14,6 +14,7 @@ import javax.swing.JButton;
 import java.awt.Font;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import javax.swing.ImageIcon;
 
 public class JrClientes extends JFrame {
 
@@ -30,6 +31,8 @@ public class JrClientes extends JFrame {
 	private JTextField txttelefono;
 	private JTextField txtestadocivil;
 	private JTextField txtcorreo;
+	private JTextField txtcodigocliente;
+	Clientes cr = new Clientes();
 
 	/**
 	 * Launch the application.
@@ -159,22 +162,43 @@ public class JrClientes extends JFrame {
 		contentPane.add(txtcorreo);
 		
 		JButton btnNewButton = new JButton("Guardar");
+		btnNewButton.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\Downloads\\guardar-datos (2).png"));
 		btnNewButton.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				Clientes cr = new Clientes();
+				
 				cr.create(txttipodocumento.getText(), Integer.parseInt(txtnumerodocumento.getText()), txtnombre.getText(), 
 				txtapellido.getText(), txtdireccio.getText(), txteps.getText(), txtalergias.getText(), txtfechanacimiento.getText(), txttelefono.getText(),
 				txtestadocivil.getText(), txtcorreo.getText());
 				
 			}
 		});
-		btnNewButton.setBounds(298, 401, 89, 23);
+		btnNewButton.setBounds(63, 362, 89, 73);
 		contentPane.add(btnNewButton);
 		
 		JLabel lblNewLabel = new JLabel("CLIENTES");
 		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 17));
 		lblNewLabel.setBounds(303, 11, 97, 23);
 		contentPane.add(lblNewLabel);
+		
+		JLabel lblNewLabel_1 = new JLabel("CodigoClientes");
+		lblNewLabel_1.setBounds(480, 73, 89, 14);
+		contentPane.add(lblNewLabel_1);
+		
+		txtcodigocliente = new JTextField();
+		txtcodigocliente.setBounds(472, 95, 86, 20);
+		contentPane.add(txtcodigocliente);
+		txtcodigocliente.setColumns(10);
+		
+		JButton btnEliminar = new JButton("Eliminar");
+		btnEliminar.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				cr.delete(Integer.parseInt(txtcodigocliente.getText()));
+			}
+		});
+		btnEliminar.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\Downloads\\eliminar (2).png"));
+		btnEliminar.setBounds(472, 148, 89, 89);
+		contentPane.add(btnEliminar);
 	}
 }

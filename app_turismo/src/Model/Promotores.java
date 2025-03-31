@@ -132,5 +132,34 @@ Conexion conectar = new Conexion();
 		}
 	}
 
+	// Eliminar registro de la table agencias
+	public void delete(int idpromotor) {
+		Connection dbConnection = null;
+		PreparedStatement pst = null; // preparar la trx
+
+		String script = "DELETE FROM tblpromotores WHERE idpromotor = ?";
+
+		try {
+			dbConnection = conectar.conectarBD(); // abrir la conexion
+			pst = dbConnection.prepareStatement(script);
+
+			pst.setInt(1, idpromotor);
+
+			// Comfirmar la operacion
+			int resp = JOptionPane.showConfirmDialog(null, "¿Desea eliminar el registro No. " + idpromotor + "?");
+
+			if (resp == JOptionPane.OK_OPTION) {
+				// Ejecutar la trx
+				pst.executeUpdate();
+				JOptionPane.showConfirmDialog(null, "Registro No. " + idpromotor + "eliminado");
+			}
+
+		} catch (SQLException e) {
+			// TODO: handle exception
+			System.out.println(e.getMessage());
+		}
+
+	}
+
 
 }

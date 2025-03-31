@@ -64,5 +64,35 @@ public class TipoMedios {
 			System.out.println(e.getMessage());
 		}
 	}
+	
+	// Eliminar registro de la table agencias
+	public void delete(int idtipomedio) {
+		Connection dbConnection = null;
+		PreparedStatement pst = null; // preparar la trx
+
+		String script = "DELETE FROM tbltipomedios WHERE idtipomedio = ?";
+
+		try {
+			dbConnection = conectar.conectarBD(); // abrir la conexion
+			pst = dbConnection.prepareStatement(script);
+
+			pst.setInt(1, idtipomedio);
+
+			// Comfirmar la operacion
+			int resp = JOptionPane.showConfirmDialog(null, "¿Desea eliminar el registro No. " + idtipomedio + "?");
+
+			if (resp == JOptionPane.OK_OPTION) {
+				// Ejecutar la trx
+				pst.executeUpdate();
+				JOptionPane.showConfirmDialog(null, "Registro No. " + idtipomedio + "eliminado");
+			}
+
+		} catch (SQLException e) {
+			// TODO: handle exception
+			System.out.println(e.getMessage());
+		}
+
+	}
+
 
 }

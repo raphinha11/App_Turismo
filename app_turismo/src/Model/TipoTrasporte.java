@@ -67,5 +67,35 @@ Conexion conectar = new Conexion();
 			System.out.println(e.getMessage());
 		}
 	}
+	
+	// Eliminar registro de la table agencias
+	public void delete(int idtipotransporte) {
+		Connection dbConnection = null;
+		PreparedStatement pst = null; // preparar la trx
+
+		String script = "DELETE FROM tbltipotransporte WHERE idtipotransporte = ?";
+
+		try {
+			dbConnection = conectar.conectarBD(); // abrir la conexion
+			pst = dbConnection.prepareStatement(script);
+
+			pst.setInt(1, idtipotransporte);
+
+			// Comfirmar la operacion
+			int resp = JOptionPane.showConfirmDialog(null, "¿Desea eliminar el registro No. " + idtipotransporte + "?");
+
+			if (resp == JOptionPane.OK_OPTION) {
+				// Ejecutar la trx
+				pst.executeUpdate();
+				JOptionPane.showConfirmDialog(null, "Registro No. " + idtipotransporte + "eliminado");
+			}
+
+		} catch (SQLException e) {
+			// TODO: handle exception
+			System.out.println(e.getMessage());
+		}
+
+	}
+
 
 }

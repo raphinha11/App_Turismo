@@ -14,6 +14,7 @@ import java.awt.Font;
 import javax.swing.JButton;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import javax.swing.ImageIcon;
 
 public class JrVehiculos extends JFrame {
 
@@ -25,6 +26,8 @@ public class JrVehiculos extends JFrame {
 	private JTextField txtModelo;
 	private JTextField txtCategoria;
 	private JTextField txtIdtipotransporte;
+	private JTextField txtidvehiculos;
+	Vehiculos cr = new Vehiculos();
 
 	/**
 	 * Launch the application.
@@ -47,7 +50,7 @@ public class JrVehiculos extends JFrame {
 	 */
 	public JrVehiculos() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 680, 450);
+		setBounds(100, 100, 696, 484);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
@@ -114,15 +117,36 @@ public class JrVehiculos extends JFrame {
 		contentPane.add(lblNewLabel);
 		
 		JButton btnGuardar = new JButton("Guardar");
+		btnGuardar.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\Downloads\\guardar-datos (2).png"));
 		btnGuardar.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				Vehiculos cr = new Vehiculos();
+				
 				cr.create(Integer.parseInt(txtMatricula.getText()), txtMarca.getText(), txtCapacidad.getText(),
 				txtModelo.getText(), txtCategoria.getText(), Integer.parseInt(txtIdtipotransporte.getText()));
 			}
 		});
-		btnGuardar.setBounds(293, 350, 89, 23);
+		btnGuardar.setBounds(70, 317, 89, 91);
 		contentPane.add(btnGuardar);
+		
+		JLabel lblNewLabel_1 = new JLabel("ID_Vehiculos");
+		lblNewLabel_1.setBounds(365, 292, 77, 14);
+		contentPane.add(lblNewLabel_1);
+		
+		txtidvehiculos = new JTextField();
+		txtidvehiculos.setBounds(452, 289, 86, 20);
+		contentPane.add(txtidvehiculos);
+		txtidvehiculos.setColumns(10);
+		
+		JButton btnEliminar = new JButton("Eliminar");
+		btnEliminar.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				cr.delete(Integer.parseInt(txtidvehiculos.getText()));
+			}
+		});
+		btnEliminar.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\Downloads\\eliminar (2).png"));
+		btnEliminar.setBounds(452, 320, 89, 84);
+		contentPane.add(btnEliminar);
 	}
 }

@@ -18,6 +18,7 @@ public class Operadores {
 	public String telefono;
 	public String correo;
 	public int idvehiculos;
+
 	public Operadores(int idpromotor, String tipodocumento, int documento, String nombre, String apellido,
 			String direccion, String telefono, String correo, int idvehiculos) {
 		super();
@@ -31,79 +32,94 @@ public class Operadores {
 		this.correo = correo;
 		this.idvehiculos = idvehiculos;
 	}
-	
-	
+
 	public Operadores() {
 		super();
 	}
 
-
 	public int getIdpromotor() {
 		return idpromotor;
 	}
+
 	public void setIdpromotor(int idpromotor) {
 		this.idpromotor = idpromotor;
 	}
+
 	public String getTipodocumento() {
 		return tipodocumento;
 	}
+
 	public void setTipodocumento(String tipodocumento) {
 		this.tipodocumento = tipodocumento;
 	}
+
 	public int getDocumento() {
 		return documento;
 	}
+
 	public void setDocumento(int documento) {
 		this.documento = documento;
 	}
+
 	public String getNombre() {
 		return nombre;
 	}
+
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
+
 	public String getApellido() {
 		return apellido;
 	}
+
 	public void setApellido(String apellido) {
 		this.apellido = apellido;
 	}
+
 	public String getDireccion() {
 		return direccion;
 	}
+
 	public void setDireccion(String direccion) {
 		this.direccion = direccion;
 	}
+
 	public String getTelefono() {
 		return telefono;
 	}
+
 	public void setTelefono(String telefono) {
 		this.telefono = telefono;
 	}
+
 	public String getCorreo() {
 		return correo;
 	}
+
 	public void setCorreo(String correo) {
 		this.correo = correo;
 	}
+
 	public int getIdvehiculos() {
 		return idvehiculos;
 	}
+
 	public void setIdvehiculos(int idvehiculos) {
 		this.idvehiculos = idvehiculos;
 	}
-	
-Conexion conectar = new Conexion();
-	
-	public void create(String tipodocumento, int documento, String nombre, String apellido,
-			String direccion, String telefono, String correo, int idvehiculos) {
+
+	Conexion conectar = new Conexion();
+
+	public void create(String tipodocumento, int documento, String nombre, String apellido, String direccion,
+			String telefono, String correo, int idvehiculos) {
 		Connection dbConnetion = null;
-		PreparedStatement pst = null; //preparar la trx
-		
+		PreparedStatement pst = null; // preparar la trx
+
 		String script = "INSERT INTO tbloperadores (tipodocumento, documento, nombre, apellido, direccion, telefono, correo, idvehiculos) values (?, ?, ?, ?, ?, ?, ?, ?)";
-		
+
 		try {
-			dbConnetion  = conectar.conectarBD(); //abrir la conexion
+			dbConnetion = conectar.conectarBD(); // abrir la conexion
 			pst = dbConnetion.prepareStatement(script);
 			//
 			pst.setString(1, tipodocumento);
@@ -123,5 +139,33 @@ Conexion conectar = new Conexion();
 		}
 	}
 
+	// Eliminar registro de la table agencias
+	public void delete(int idpromotor) {
+		Connection dbConnection = null;
+		PreparedStatement pst = null; // preparar la trx
+
+		String script = "DELETE FROM tblmedios WHERE idpromotor = ?";
+
+		try {
+			dbConnection = conectar.conectarBD(); // abrir la conexion
+			pst = dbConnection.prepareStatement(script);
+
+			pst.setInt(1, idpromotor);
+
+			// Comfirmar la operacion
+			int resp = JOptionPane.showConfirmDialog(null, "¿Desea eliminar el registro No. " + idpromotor + "?");
+
+			if (resp == JOptionPane.OK_OPTION) {
+				// Ejecutar la trx
+				pst.executeUpdate();
+				JOptionPane.showConfirmDialog(null, "Registro No. " + idpromotor + "eliminado");
+			}
+
+		} catch (SQLException e) {
+			// TODO: handle exception
+			System.out.println(e.getMessage());
+		}
+
+	}
 
 }

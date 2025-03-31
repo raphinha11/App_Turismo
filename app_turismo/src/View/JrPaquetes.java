@@ -14,6 +14,7 @@ import java.awt.Font;
 import javax.swing.JButton;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import javax.swing.ImageIcon;
 
 public class JrPaquetes extends JFrame {
 
@@ -32,6 +33,8 @@ public class JrPaquetes extends JFrame {
 	private JTextField txtidvehiculos;
 	private JTextField txtiddestino;
 	private JTextField txtidorigen;
+	Paquetes cr = new Paquetes();
+	private JTextField txtcodigos;
 
 	/**
 	 * Launch the application.
@@ -54,7 +57,7 @@ public class JrPaquetes extends JFrame {
 	 */
 	public JrPaquetes() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 705, 485);
+		setBounds(100, 100, 725, 532);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
@@ -121,17 +124,18 @@ public class JrPaquetes extends JFrame {
 		contentPane.add(lblNewLabel);
 		
 		JButton btnGuardar = new JButton("Guardar");
+		btnGuardar.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\Downloads\\guardar-datos (2).png"));
 		btnGuardar.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				Paquetes cr = new Paquetes();
+				
 				cr.create(Integer.parseInt(txtiddestino.getText()), Integer.parseInt(txtidorigen.getText()) , txtFechaventa.getText(), txthoraventa.getText(), txtHorasalida.getText(), txtFechaejecucion.getText(),
 				txtObservacion.getText(), Integer.parseInt(txtcodigocliente.getText()), Integer.parseInt(txtidpromotor.getText()),
 				Integer.parseInt(txtidmedio.getText()), Integer.parseInt(txtidagencia.getText()), Integer.parseInt(txtidvehiculos.getText()),
 				Integer.parseInt(txtPrecio.getText()));
 			}
 		});
-		btnGuardar.setBounds(298, 376, 89, 23);
+		btnGuardar.setBounds(80, 389, 89, 80);
 		contentPane.add(btnGuardar);
 		
 		JLabel lblcodigocliente = new JLabel("codigocliente");
@@ -196,6 +200,26 @@ public class JrPaquetes extends JFrame {
 		txtidorigen.setColumns(10);
 		txtidorigen.setBounds(210, 96, 86, 20);
 		contentPane.add(txtidorigen);
+		
+		JLabel lblNewLabel_2 = new JLabel("Codigos");
+		lblNewLabel_2.setBounds(457, 354, 70, 14);
+		contentPane.add(lblNewLabel_2);
+		
+		txtcodigos = new JTextField();
+		txtcodigos.setBounds(535, 351, 86, 20);
+		contentPane.add(txtcodigos);
+		txtcodigos.setColumns(10);
+		
+		JButton btnEliminar = new JButton("eliminar");
+		btnEliminar.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				cr.delete(Integer.parseInt(txtcodigos.getText()));
+			}
+		});
+		btnEliminar.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\Downloads\\eliminar (2).png"));
+		btnEliminar.setBounds(532, 389, 89, 80);
+		contentPane.add(btnEliminar);
 	}
 
 }
