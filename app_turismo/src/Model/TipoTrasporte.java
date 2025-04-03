@@ -96,6 +96,35 @@ Conexion conectar = new Conexion();
 		}
 
 	}
+	
+	public void update(String nombre, String descrpcion) {
 
+		Connection dbConnection = null;
+		PreparedStatement pst = null; // preparar la trx
+
+		String script = "UPDATE tbltipotransporte SET nombre = ?, descrpcion = ? WHERE idtipotransporte = ?";
+
+		try {
+			dbConnection = conectar.conectarBD(); // abrir la conexion
+			pst = dbConnection.prepareStatement(script); // abrir el buffer
+
+			// parametrizar el campo
+
+			pst.setString(1, nombre);
+			pst.setString(2, descrpcion);
+	
+			
+			// confirmar la operacion
+			int resp = JOptionPane.showConfirmDialog(null, "¿desea actualizar esta fila?");
+
+			if (resp == JOptionPane.OK_OPTION) {
+				pst.executeUpdate();
+				JOptionPane.showConfirmDialog(null, "fila actualizada");
+			}
+
+		} catch (SQLException e) {
+			System.out.println(e.getMessage());
+		}
+	}
 
 }

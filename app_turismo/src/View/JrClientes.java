@@ -200,5 +200,18 @@ public class JrClientes extends JFrame {
 		btnEliminar.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\Downloads\\eliminar (2).png"));
 		btnEliminar.setBounds(472, 148, 89, 89);
 		contentPane.add(btnEliminar);
+		
+		JButton btnActualizar = new JButton("Actualizar");
+		btnActualizar.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				cr.update(txttipodocumento.getText(), Integer.parseInt(txtnumerodocumento.getText()), txtnombre.getText(), 
+				txtapellido.getText(), txtdireccio.getText(), txteps.getText(), txtalergias.getText(), txtfechanacimiento.getText(), txttelefono.getText(),
+				txtestadocivil.getText(), txtcorreo.getText());
+			}
+		});
+		btnActualizar.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\Downloads\\actualizar.png"));
+		btnActualizar.setBounds(472, 294, 89, 89);
+		contentPane.add(btnActualizar);
 	}
 }

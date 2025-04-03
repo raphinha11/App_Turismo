@@ -135,5 +135,40 @@ Conexion conectar = new Conexion();
 
 	}
 
+	public void update(int matricula, String marca, String capacidad, String modelo, String categoria,
+			int idtipotransporte) {
+
+		Connection dbConnection = null;
+		PreparedStatement pst = null; // preparar la trx
+
+		String script = "UPDATE tblvehiculos SET matricula = ?, marca = ?, capacidad = ?, modelo = ?, categoria = ?, idtipotransporte = ?  WHERE idvehiculos = ?";
+
+		try {
+			dbConnection = conectar.conectarBD(); // abrir la conexion
+			pst = dbConnection.prepareStatement(script); // abrir el buffer
+
+			// parametrizar el campo
+
+			pst.setInt(1, matricula);
+			pst.setString(2, marca);
+			pst.setString(3, capacidad);
+			pst.setString(4, modelo);
+			pst.setString(5, categoria);
+			pst.setInt(6, idtipotransporte);
+	
+			
+			// confirmar la operacion
+			int resp = JOptionPane.showConfirmDialog(null, "¿desea actualizar esta fila?");
+
+			if (resp == JOptionPane.OK_OPTION) {
+				pst.executeUpdate();
+				JOptionPane.showConfirmDialog(null, "fila actualizada");
+			}
+
+		} catch (SQLException e) {
+			System.out.println(e.getMessage());
+		}
+	}
+
  
 }

@@ -146,4 +146,40 @@ public class Companias {
 		}
 
 	}
+	
+	public void update(String razonsocial, String direccion, String telefono, String correo, String fechacreacion,
+			String web) {
+
+		Connection dbConnection = null;
+		PreparedStatement pst = null; // preparar la trx
+
+		String script = "UPDATE tblcompanias SET razonsocial = ?, direccion = ?, telefono = ?, correo = ?, direccion = ?, fechacreacion = ?, web = ? WHERE idcompania = ?";
+
+		try {
+			dbConnection = conectar.conectarBD(); // abrir la conexion
+			pst = dbConnection.prepareStatement(script); // abrir el buffer
+
+			// parametrizar el campo
+
+			pst.setString(1, razonsocial);
+			pst.setString(2, direccion);
+			pst.setString(3, telefono);
+			pst.setString(4, correo);
+			pst.setString(5, direccion);
+			pst.setString(6, fechacreacion);
+			pst.setString(7, web);
+			
+			// confirmar la operacion
+			int resp = JOptionPane.showConfirmDialog(null, "¿desea actualizar esta fila?");
+
+			if (resp == JOptionPane.OK_OPTION) {
+				pst.executeUpdate();
+				JOptionPane.showConfirmDialog(null, "fila actualizada");
+			}
+
+		} catch (SQLException e) {
+			System.out.println(e.getMessage());
+		}
+	}
+
 }

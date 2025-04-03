@@ -148,5 +148,17 @@ public class JrVehiculos extends JFrame {
 		btnEliminar.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\Downloads\\eliminar (2).png"));
 		btnEliminar.setBounds(452, 320, 89, 84);
 		contentPane.add(btnEliminar);
+		
+		JButton btnActualizar = new JButton("Actualizar");
+		btnActualizar.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				cr.update(Integer.parseInt(txtMatricula.getText()), txtMarca.getText(), txtCapacidad.getText(),
+				txtModelo.getText(), txtCategoria.getText(), Integer.parseInt(txtIdtipotransporte.getText()));
+			}
+		});
+		btnActualizar.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\Downloads\\actualizar.png"));
+		btnActualizar.setBounds(202, 320, 89, 88);
+		contentPane.add(btnActualizar);
 	}
 }

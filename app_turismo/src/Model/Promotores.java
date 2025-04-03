@@ -161,5 +161,43 @@ Conexion conectar = new Conexion();
 
 	}
 
+	public void update(String tipodocumento, int numerodocumento, String nombre, String apellido,
+			String direccion, String telefono, String correoperonal, String correocorp, String fechanacimiento) {
+
+		Connection dbConnection = null;
+		PreparedStatement pst = null; // preparar la trx
+
+		String script = "UPDATE tblpromotores SET tipodocumento = ?, numerodocumento = ?, nombre = ?, apellido = ?, direccion = ?, telefono = ?, correoperonal = ?, correocorp = ?, fechanacimiento = ? WHERE codigos = ?";
+
+		try {
+			dbConnection = conectar.conectarBD(); // abrir la conexion
+			pst = dbConnection.prepareStatement(script); // abrir el buffer
+
+			// parametrizar el campo
+
+			pst.setString(1, tipodocumento);
+			pst.setInt(2, numerodocumento);
+			pst.setString(3, nombre);
+			pst.setString(4, apellido);
+			pst.setString(5, direccion);
+			pst.setString(6, telefono);
+			pst.setString(7, correoperonal);
+			pst.setString(8, correocorp);
+			pst.setString(9, fechanacimiento);
+		
+			
+			// confirmar la operacion
+			int resp = JOptionPane.showConfirmDialog(null, "¿desea actualizar esta fila?");
+
+			if (resp == JOptionPane.OK_OPTION) {
+				pst.executeUpdate();
+				JOptionPane.showConfirmDialog(null, "fila actualizada");
+			}
+
+		} catch (SQLException e) {
+			System.out.println(e.getMessage());
+		}
+	}
+
 
 }

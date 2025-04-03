@@ -29,6 +29,7 @@ public class JrMedios extends JFrame {
 	private JTextField txtidmedios;
 	private JButton btnEliminar;
 	Medios cr = new Medios();
+	private JButton btnActualizar;
 
 	/**
 	 * Launch the application.
@@ -121,5 +122,16 @@ public class JrMedios extends JFrame {
 		btnEliminar.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\Downloads\\eliminar (2).png"));
 		btnEliminar.setBounds(358, 158, 89, 83);
 		contentPane.add(btnEliminar);
+		
+		btnActualizar = new JButton("Actualizar");
+		btnActualizar.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				cr.update(txtNombre.getText(), txtObservacion.getText(), Integer.parseInt(txtidtipomedio.getText()));
+			}
+		});
+		btnActualizar.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\Downloads\\actualizar.png"));
+		btnActualizar.setBounds(211, 252, 89, 73);
+		contentPane.add(btnActualizar);
 	}
 }

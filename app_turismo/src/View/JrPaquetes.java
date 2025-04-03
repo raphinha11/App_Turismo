@@ -220,6 +220,20 @@ public class JrPaquetes extends JFrame {
 		btnEliminar.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\Downloads\\eliminar (2).png"));
 		btnEliminar.setBounds(532, 389, 89, 80);
 		contentPane.add(btnEliminar);
+		
+		JButton btnActualizar = new JButton("Actualizar");
+		btnActualizar.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				cr.update(Integer.parseInt(txtiddestino.getText()), Integer.parseInt(txtidorigen.getText()) , txtFechaventa.getText(), txthoraventa.getText(), txtHorasalida.getText(), txtFechaejecucion.getText(),
+				txtObservacion.getText(), Integer.parseInt(txtcodigocliente.getText()), Integer.parseInt(txtidpromotor.getText()),
+				Integer.parseInt(txtidmedio.getText()), Integer.parseInt(txtidagencia.getText()), Integer.parseInt(txtidvehiculos.getText()),
+				Integer.parseInt(txtPrecio.getText()));
+			}
+		});
+		btnActualizar.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\Downloads\\actualizar.png"));
+		btnActualizar.setBounds(207, 389, 89, 80);
+		contentPane.add(btnActualizar);
 	}
 
 }

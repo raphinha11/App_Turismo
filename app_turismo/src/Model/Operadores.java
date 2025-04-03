@@ -167,5 +167,42 @@ public class Operadores {
 		}
 
 	}
+	
+	public void update(String tipodocumento, int documento, String nombre, String apellido, String direccion,
+			String telefono, String correo, int idvehiculos) {
+
+		Connection dbConnection = null;
+		PreparedStatement pst = null; // preparar la trx
+
+		String script = "UPDATE tbloperadores SET tipodocumento = ?, documento = ?, nombre = ?, apellido = ?, direccion = ?, telefono = ?, correo = ?, idvehiculos = ? WHERE idpromotor = ?";
+
+		try {
+			dbConnection = conectar.conectarBD(); // abrir la conexion
+			pst = dbConnection.prepareStatement(script); // abrir el buffer
+
+			// parametrizar el campo
+
+			pst.setString(1, tipodocumento);
+			pst.setInt(2, documento);
+			pst.setString(3, nombre);
+			pst.setString(4, apellido);
+			pst.setString(5, direccion);
+			pst.setString(6, telefono);
+			pst.setString(7, correo);
+			pst.setInt(8, idvehiculos);
+			
+			// confirmar la operacion
+			int resp = JOptionPane.showConfirmDialog(null, "¿desea actualizar esta fila?");
+
+			if (resp == JOptionPane.OK_OPTION) {
+				pst.executeUpdate();
+				JOptionPane.showConfirmDialog(null, "fila actualizada");
+			}
+
+		} catch (SQLException e) {
+			System.out.println(e.getMessage());
+		}
+	}
+
 
 }
