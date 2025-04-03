@@ -46,7 +46,7 @@ public class JrTipoTransporte extends JFrame {
 	 */
 	public JrTipoTransporte() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 489, 334);
+		setBounds(100, 100, 589, 339);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
@@ -85,15 +85,15 @@ public class JrTipoTransporte extends JFrame {
 				cr.create(txtNombre.getText(), txtDescripcion.getText());
 			}
 		});
-		btnGuardar.setBounds(47, 164, 89, 82);
+		btnGuardar.setBounds(29, 178, 89, 82);
 		contentPane.add(btnGuardar);
 		
 		JLabel lblNewLabel = new JLabel("ID_TipoTransporte");
-		lblNewLabel.setBounds(332, 112, 107, 14);
+		lblNewLabel.setBounds(421, 47, 107, 14);
 		contentPane.add(lblNewLabel);
 		
 		txttipotransporte = new JTextField();
-		txttipotransporte.setBounds(332, 137, 86, 20);
+		txttipotransporte.setBounds(421, 72, 86, 20);
 		contentPane.add(txttipotransporte);
 		txttipotransporte.setColumns(10);
 		
@@ -105,7 +105,7 @@ public class JrTipoTransporte extends JFrame {
 			}
 		});
 		btnEliminar.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\Downloads\\eliminar (2).png"));
-		btnEliminar.setBounds(332, 169, 89, 77);
+		btnEliminar.setBounds(421, 118, 89, 77);
 		contentPane.add(btnEliminar);
 		
 		JButton btnActualizar = new JButton("Actualizar");
@@ -116,7 +116,18 @@ public class JrTipoTransporte extends JFrame {
 			}
 		});
 		btnActualizar.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\Downloads\\actualizar.png"));
-		btnActualizar.setBounds(172, 164, 89, 82);
+		btnActualizar.setBounds(128, 178, 89, 82);
 		contentPane.add(btnActualizar);
+		
+		JButton btnConsultar = new JButton("Consultar");
+		btnConsultar.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				cr.read(Integer.parseInt(txttipotransporte.getText()), txtNombre, txtDescripcion);
+			}
+		});
+		btnConsultar.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\Downloads\\consulta.png"));
+		btnConsultar.setBounds(273, 178, 89, 82);
+		contentPane.add(btnConsultar);
 	}
 }

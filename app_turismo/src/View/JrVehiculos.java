@@ -130,11 +130,11 @@ public class JrVehiculos extends JFrame {
 		contentPane.add(btnGuardar);
 		
 		JLabel lblNewLabel_1 = new JLabel("ID_Vehiculos");
-		lblNewLabel_1.setBounds(365, 292, 77, 14);
+		lblNewLabel_1.setBounds(568, 264, 77, 14);
 		contentPane.add(lblNewLabel_1);
 		
 		txtidvehiculos = new JTextField();
-		txtidvehiculos.setBounds(452, 289, 86, 20);
+		txtidvehiculos.setBounds(559, 289, 86, 20);
 		contentPane.add(txtidvehiculos);
 		txtidvehiculos.setColumns(10);
 		
@@ -146,7 +146,7 @@ public class JrVehiculos extends JFrame {
 			}
 		});
 		btnEliminar.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\Downloads\\eliminar (2).png"));
-		btnEliminar.setBounds(452, 320, 89, 84);
+		btnEliminar.setBounds(556, 324, 89, 84);
 		contentPane.add(btnEliminar);
 		
 		JButton btnActualizar = new JButton("Actualizar");
@@ -160,5 +160,16 @@ public class JrVehiculos extends JFrame {
 		btnActualizar.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\Downloads\\actualizar.png"));
 		btnActualizar.setBounds(202, 320, 89, 88);
 		contentPane.add(btnActualizar);
+		
+		JButton btnConsultar = new JButton("Consultar");
+		btnConsultar.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				cr.read(Integer.parseInt(txtidvehiculos.getText()), txtMatricula, txtMarca, txtCapacidad, txtModelo, txtCategoria);
+			}
+		});
+		btnConsultar.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\Downloads\\consulta.png"));
+		btnConsultar.setBounds(341, 320, 89, 84);
+		contentPane.add(btnConsultar);
 	}
 }

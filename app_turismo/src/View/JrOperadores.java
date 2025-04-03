@@ -180,5 +180,16 @@ public class JrOperadores extends JFrame {
 		btnActualizar.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\Downloads\\actualizar.png"));
 		btnActualizar.setBounds(212, 307, 89, 85);
 		contentPane.add(btnActualizar);
+		
+		JButton btnConsultar = new JButton("Consultar");
+		btnConsultar.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				cr.read(Integer.parseInt(txtidoperadores.getText()), txtTipodocumento, txtNumerodocumento, txtNombre, txtApellido, txtDireccion, txtTelefono, txtCorreo);
+			}
+		});
+		btnConsultar.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\Downloads\\consulta.png"));
+		btnConsultar.setBounds(417, 310, 89, 73);
+		contentPane.add(btnConsultar);
 	}
 }

@@ -2,9 +2,11 @@ package Model;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import javax.swing.JOptionPane;
+import javax.swing.JTextField;
 
 import Controller.Conexion;
 
@@ -223,10 +225,10 @@ public class Clientes {
 			pst.setString(5, direccion);
 			pst.setString(6, eps);
 			pst.setString(7, alergias);
-			pst.setString(1, fechanacimiento);
-			pst.setString(1, telefono);
-			pst.setString(1, estadocivil);
-			pst.setString(1, correo);
+			pst.setString(8, fechanacimiento);
+			pst.setString(9, telefono);
+			pst.setString(10, estadocivil);
+			pst.setString(11, correo);
 			
 			
 			// confirmar la operacion
@@ -240,6 +242,40 @@ public class Clientes {
 		} catch (SQLException e) {
 			System.out.println(e.getMessage());
 		}
+	}
+
+	public void read(int codigocliente, JTextField tipodocumento, JTextField numerodocumento, JTextField nombre, JTextField apellido, JTextField direccion, JTextField eps, JTextField alergias, JTextField fechanacimiento, JTextField telefono, JTextField estadocivil, JTextField correo ) {
+		Connection dbConnection = null;
+		PreparedStatement pst = null; // preparar la trx
+
+		String script = "SELECT * FROM tblclientes WHERE codigocliente = ?";
+
+		try {
+			dbConnection = conectar.conectarBD(); // abrir la conexion
+			pst = dbConnection.prepareStatement(script);
+
+			pst.setInt(1, codigocliente);
+			ResultSet rs = pst.executeQuery();
+			
+			while (rs.next()) {
+				tipodocumento.setText(rs.getString(2));
+				numerodocumento.setText(rs.getString(3));
+				nombre.setText(rs.getString(4));
+				apellido.setText(rs.getString(5));
+				direccion.setText(rs.getString(6));
+				eps.setText(rs.getString(7));
+				alergias.setText(rs.getString(8));
+				fechanacimiento.setText(rs.getString(9));
+				telefono.setText(rs.getString(10));
+				estadocivil.setText(rs.getString(11));
+				correo.setText(rs.getString(12));
+			}
+
+		} catch (SQLException e) {
+			// TODO: handle exception
+			System.out.println(e.getMessage());
+		}
+
 	}
 
 

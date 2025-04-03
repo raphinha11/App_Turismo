@@ -2,9 +2,11 @@ package Model;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import javax.swing.JOptionPane;
+import javax.swing.JTextField;
 
 import Controller.Conexion;
 
@@ -232,7 +234,7 @@ public class Paquetes {
 		Connection dbConnection = null;
 		PreparedStatement pst = null; // preparar la trx
 
-		String script = "UPDATE tblpaquetes SET iddestino = ?, idorigen = ?, fechaventa = ?, horaventa = ?, horaventa = ?, fechaejecucion = ?, observacion = ?, codigocliente = ?, idpromotor = ?, idagencia = ?, idvehiculos = ?, precio = ? WHERE codigos = ?";
+		String script = "UPDATE tblpaquetes SET iddestino = ?, idorigen = ?, fechaventa = ?, horaventa = ?, horasalida = ?, fechaejecucion = ?, observacion = ?, codigocliente = ?, idpromotor = ?, idagencia = ?, idvehiculos = ?, precio = ? WHERE codigos = ?";
 
 		try {
 			dbConnection = conectar.conectarBD(); // abrir la conexion
@@ -244,7 +246,7 @@ public class Paquetes {
 			pst.setInt(2, idorigen);
 			pst.setString(3, fechaventa);
 			pst.setString(4, horaventa);
-			pst.setString(5, horaventa);
+			pst.setString(5, horasalida);
 			pst.setString(6, fechaejecucion);
 			pst.setString(7, observacion);
 			pst.setInt(8, codigocliente);
@@ -265,6 +267,35 @@ public class Paquetes {
 		} catch (SQLException e) {
 			System.out.println(e.getMessage());
 		}
+	}
+
+	public void read(int codigos, JTextField fechaventa, JTextField horaventa, JTextField horasalida, JTextField fechaejecucion, JTextField observacion, JTextField precio) {
+		Connection dbConnection = null;
+		PreparedStatement pst = null; // preparar la trx
+
+		String script = "SELECT * FROM tblpaquetes WHERE codigos = ?";
+
+		try {
+			dbConnection = conectar.conectarBD(); // abrir la conexion
+			pst = dbConnection.prepareStatement(script);
+
+			pst.setInt(1, codigos);
+			ResultSet rs = pst.executeQuery();
+			
+			while (rs.next()) {
+				fechaventa.setText(rs.getString(4));
+				horaventa.setText(rs.getString(5));
+				horasalida.setText(rs.getString(6));
+				fechaejecucion.setText(rs.getString(7));
+				observacion.setText(rs.getString(8));
+				precio.setText(rs.getString(14));
+			}
+
+		} catch (SQLException e) {
+			// TODO: handle exception
+			System.out.println(e.getMessage());
+		}
+
 	}
 
 

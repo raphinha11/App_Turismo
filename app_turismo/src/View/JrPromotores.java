@@ -191,6 +191,17 @@ public class JrPromotores extends JFrame {
 		btnActualizar.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\Downloads\\actualizar.png"));
 		btnActualizar.setBounds(238, 382, 89, 73);
 		contentPane.add(btnActualizar);
+		
+		JButton btnConsultar = new JButton("Consultar");
+		btnConsultar.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				cr.read(Integer.parseInt(txtidpromotor.getText()), txtTipodocumento, txtNumerodocumento, txtNombre, txtapellido, txtDireccion, txtTelefono, txtCorreopersonal, txtCorreocorp, txtFechanacimiento);
+			}
+		});
+		btnConsultar.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\Downloads\\consulta.png"));
+		btnConsultar.setBounds(485, 379, 89, 76);
+		contentPane.add(btnConsultar);
 	}
 
 }

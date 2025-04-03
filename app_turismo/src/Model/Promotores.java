@@ -1,12 +1,16 @@
 package Model;
 
+import java.security.Principal;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import javax.swing.JOptionPane;
+import javax.swing.JTextField;
 
 import Controller.Conexion;
+import View.JrPrincipal;
 
 public class Promotores {
 	public int idpromotor;
@@ -19,6 +23,26 @@ public class Promotores {
 	public String correoperonal;
 	public String correocorp;
 	public String fechanacimiento;
+	public String contrasena;
+	JrPrincipal principal = new JrPrincipal();
+	public Promotores(int idpromotor, String tipodocumento, int numerodocumento, String nombre, String apellido,
+			String direccion, String telefono, String correoperonal, String correocorp, String fechanacimiento,
+			String contrasena) {
+		super();
+		this.idpromotor = idpromotor;
+		this.tipodocumento = tipodocumento;
+		this.numerodocumento = numerodocumento;
+		this.nombre = nombre;
+		this.apellido = apellido;
+		this.direccion = direccion;
+		this.telefono = telefono;
+		this.correoperonal = correoperonal;
+		this.correocorp = correocorp;
+		this.fechanacimiento = fechanacimiento;
+		this.contrasena = contrasena;
+	}
+
+
 	public Promotores(int idpromotor, String tipodocumento, int numerodocumento, String nombre, String apellido,
 			String direccion, String telefono, String correoperonal, String correocorp, String fechanacimiento) {
 		super();
@@ -38,7 +62,7 @@ public class Promotores {
 	public Promotores() {
 		super();
 	}
-
+	
 
 	public int getIdpromotor() {
 		return idpromotor;
@@ -100,6 +124,13 @@ public class Promotores {
 	public void setFechanacimiento(String fechanacimiento) {
 		this.fechanacimiento = fechanacimiento;
 	}
+	public String getContrasena() {
+		return contrasena;
+	}
+	public void setContrasena(String contrasena) {
+		this.contrasena = contrasena;
+	}
+
 	
 Conexion conectar = new Conexion();
 	
@@ -197,6 +228,67 @@ Conexion conectar = new Conexion();
 		} catch (SQLException e) {
 			System.out.println(e.getMessage());
 		}
+	}
+
+	public void controlAcceso(int user, String pass) {
+		//Logica que debemos hacer?
+		
+		Connection dbConnection = null;
+		PreparedStatement pst = null; // preparar la trx
+
+		String script = "SELECT * FROM tblpromotores WHERE numerodocumento = ? and contrasena = ?";
+
+		try {
+			dbConnection = conectar.conectarBD(); // abrir la conexion
+			pst = dbConnection.prepareStatement(script);
+
+			pst.setInt(1, user);
+			pst.setString(2, pass);
+			
+			ResultSet rs = pst.executeQuery(); //Almacenamiento temporal
+			
+			while (rs.next()) {
+				principal.show();
+			//	JOptionPane.showConfirmDialog(null, "Acceso Permitido");
+				
+			}	
+
+		} catch (SQLException e) {
+			// TODO: handle exception
+			System.out.println(e.getMessage());
+		}
+	}
+	
+	public void read(int idpromotor, JTextField tipodocumento, JTextField numerodocumento, JTextField nombre, JTextField apellido, JTextField direccion, JTextField telefono, JTextField correoperonal, JTextField correocorp, JTextField fechanacimiento) {
+		Connection dbConnection = null;
+		PreparedStatement pst = null; // preparar la trx
+
+		String script = "SELECT * FROM tblpromotores WHERE idpromotor = ?";
+
+		try {
+			dbConnection = conectar.conectarBD(); // abrir la conexion
+			pst = dbConnection.prepareStatement(script);
+
+			pst.setInt(1, idpromotor);
+			ResultSet rs = pst.executeQuery();
+			
+			while (rs.next()) {
+				tipodocumento.setText(rs.getString(2));
+				numerodocumento.setText(rs.getString(3));
+				nombre.setText(rs.getString(4));
+				apellido.setText(rs.getString(5));
+				direccion.setText(rs.getString(6));
+				telefono.setText(rs.getString(7));
+				correoperonal.setText(rs.getString(8));
+				correocorp.setText(rs.getString(9));
+				fechanacimiento.setText(rs.getString(10));
+			}
+
+		} catch (SQLException e) {
+			// TODO: handle exception
+			System.out.println(e.getMessage());
+		}
+
 	}
 
 

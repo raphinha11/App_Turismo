@@ -2,9 +2,11 @@ package Model;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import javax.swing.JOptionPane;
+import javax.swing.JTextField;
 
 import Controller.Conexion;
 
@@ -109,7 +111,7 @@ Conexion conectar = new Conexion();
 		Connection dbConnection = null;
 		PreparedStatement pst = null; // preparar la trx
 
-		String script = "UPDATE tblcompanias SET nombre = ?, obsrvacion = ?, idtipomedio = ? WHERE idcompania = ?";
+		String script = "UPDATE tblmedios SET nombre = ?, obsrvacion = ?, idtipomedio = ? WHERE idmedio = ?";
 
 		try {
 			dbConnection = conectar.conectarBD(); // abrir la conexion
@@ -130,6 +132,31 @@ Conexion conectar = new Conexion();
 			}
 
 		} catch (SQLException e) {
+			System.out.println(e.getMessage());
+		}
+	}
+
+	public void read(int idmedio, JTextField nombre, JTextField obsrvacion) {
+		Connection dbConnection = null;
+		PreparedStatement pst = null; // preparar la trx
+
+		String script = "SELECT * FROM tblmedios WHERE idmedio = ?";
+
+		try {
+			dbConnection = conectar.conectarBD(); // abrir la conexion
+			pst = dbConnection.prepareStatement(script);
+
+			pst.setInt(1, idmedio);
+			ResultSet rs = pst.executeQuery();
+			
+			while (rs.next()) {
+				nombre.setText(rs.getString(2));
+				obsrvacion.setText(rs.getString(3));
+				
+			}
+
+		} catch (SQLException e) {
+			// TODO: handle exception
 			System.out.println(e.getMessage());
 		}
 	}

@@ -2,9 +2,11 @@ package Model;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import javax.swing.JOptionPane;
+import javax.swing.JTextField;
 
 import Controller.Conexion;
 
@@ -153,7 +155,7 @@ public class Companias {
 		Connection dbConnection = null;
 		PreparedStatement pst = null; // preparar la trx
 
-		String script = "UPDATE tblcompanias SET razonsocial = ?, direccion = ?, telefono = ?, correo = ?, direccion = ?, fechacreacion = ?, web = ? WHERE idcompania = ?";
+		String script = "UPDATE tblcompanias SET razonsocial = ?, direccion = ?, telefono = ?, correo = ?,fechacreacion = ?, web = ? WHERE idcompania = ?";
 
 		try {
 			dbConnection = conectar.conectarBD(); // abrir la conexion
@@ -165,7 +167,6 @@ public class Companias {
 			pst.setString(2, direccion);
 			pst.setString(3, telefono);
 			pst.setString(4, correo);
-			pst.setString(5, direccion);
 			pst.setString(6, fechacreacion);
 			pst.setString(7, web);
 			
@@ -178,6 +179,35 @@ public class Companias {
 			}
 
 		} catch (SQLException e) {
+			System.out.println(e.getMessage());
+		}
+	}
+	
+	public void read(int idcompania, JTextField razonsocial, JTextField direccion, JTextField telefono, JTextField correo, JTextField fechacreacion, JTextField web) {
+		Connection dbConnection = null;
+		PreparedStatement pst = null; // preparar la trx
+
+		String script = "SELECT * FROM tblcompanias WHERE idcompania = ?";
+
+		try {
+			dbConnection = conectar.conectarBD(); // abrir la conexion
+			pst = dbConnection.prepareStatement(script);
+
+			pst.setInt(1, idcompania);
+			ResultSet rs = pst.executeQuery();
+			
+			while (rs.next()) {
+				razonsocial.setText(rs.getString(2));
+				direccion.setText(rs.getString(3));
+				telefono.setText(rs.getString(4));
+				correo.setText(rs.getString(5));
+				fechacreacion.setText(rs.getString(6));
+				web.setText(rs.getString(7));
+				
+			}
+
+		} catch (SQLException e) {
+			// TODO: handle exception
 			System.out.println(e.getMessage());
 		}
 	}

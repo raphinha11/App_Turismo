@@ -3,9 +3,11 @@ package Model;
 import java.awt.JobAttributes;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import javax.swing.JOptionPane;
+import javax.swing.JTextField;
 
 import Controller.Conexion;
 
@@ -182,5 +184,34 @@ public class Agencias {
 			System.out.println(e.getMessage());
 		}
 	}
+	
+	public void read(int idagencia, JTextField nombre, JTextField dirccion, JTextField tlefono, JTextField correo, JTextField web) {
+		Connection dbConnection = null;
+		PreparedStatement pst = null; // preparar la trx
+
+		String script = "SELECT * FROM tblagencias WHERE idagencia = ?";
+
+		try {
+			dbConnection = conectar.conectarBD(); // abrir la conexion
+			pst = dbConnection.prepareStatement(script);
+
+			pst.setInt(1, idagencia);
+			ResultSet rs = pst.executeQuery();
+			
+			while (rs.next()) {
+				nombre.setText(rs.getString(2));
+				dirccion.setText(rs.getString(3));
+				tlefono.setText(rs.getString(4));
+				correo.setText(rs.getString(5));
+				web.setText(rs.getString(6));
+			}
+
+		} catch (SQLException e) {
+			// TODO: handle exception
+			System.out.println(e.getMessage());
+		}
+
+	}
+
 
 }

@@ -28,6 +28,7 @@ public class JrtipoMedios extends JFrame {
 	private JButton btneliminar;
 	TipoMedios cr = new TipoMedios();
 	private JButton btnActualizar;
+	private JButton btnConsultar;
 
 	/**
 	 * Launch the application.
@@ -96,11 +97,11 @@ public class JrtipoMedios extends JFrame {
 		contentPane.add(btnGuardar);
 		
 		lblNewLabel_1 = new JLabel("ID_TiposMedios");
-		lblNewLabel_1.setBounds(352, 67, 89, 14);
+		lblNewLabel_1.setBounds(343, 42, 89, 14);
 		contentPane.add(lblNewLabel_1);
 		
 		txtidtipomedio = new JTextField();
-		txtidtipomedio.setBounds(343, 92, 86, 20);
+		txtidtipomedio.setBounds(343, 64, 86, 20);
 		contentPane.add(txtidtipomedio);
 		txtidtipomedio.setColumns(10);
 		
@@ -113,7 +114,7 @@ public class JrtipoMedios extends JFrame {
 			
 		});
 		btneliminar.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\Downloads\\eliminar (2).png"));
-		btneliminar.setBounds(343, 127, 89, 73);
+		btneliminar.setBounds(343, 98, 89, 73);
 		contentPane.add(btneliminar);
 		
 		btnActualizar = new JButton("Actualizar");
@@ -126,6 +127,17 @@ public class JrtipoMedios extends JFrame {
 		btnActualizar.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\Downloads\\actualizar.png"));
 		btnActualizar.setBounds(191, 200, 89, 73);
 		contentPane.add(btnActualizar);
+		
+		btnConsultar = new JButton("Consultar");
+		btnConsultar.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				cr.read(Integer.parseInt(txtidtipomedio.getText()), txtNombre, txtObservacion);
+			}
+		});
+		btnConsultar.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\Downloads\\consulta.png"));
+		btnConsultar.setBounds(343, 200, 89, 73);
+		contentPane.add(btnConsultar);
 	}
 
 }

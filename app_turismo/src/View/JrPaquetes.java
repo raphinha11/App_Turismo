@@ -234,6 +234,17 @@ public class JrPaquetes extends JFrame {
 		btnActualizar.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\Downloads\\actualizar.png"));
 		btnActualizar.setBounds(207, 389, 89, 80);
 		contentPane.add(btnActualizar);
+		
+		JButton btnConsultar = new JButton("Consultar");
+		btnConsultar.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				cr.read(Integer.parseInt(txtcodigos.getText()), txtFechaventa, txthoraventa, txtHorasalida, txtFechaejecucion, txtObservacion, txtPrecio);
+			}
+		});
+		btnConsultar.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\Downloads\\consulta.png"));
+		btnConsultar.setBounds(350, 389, 89, 80);
+		contentPane.add(btnConsultar);
 	}
 
 }

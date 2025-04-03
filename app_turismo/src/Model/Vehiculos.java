@@ -2,9 +2,11 @@ package Model;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import javax.swing.JOptionPane;
+import javax.swing.JTextField;
 
 import Controller.Conexion;
 
@@ -168,6 +170,35 @@ Conexion conectar = new Conexion();
 		} catch (SQLException e) {
 			System.out.println(e.getMessage());
 		}
+	}
+
+	public void read(int idvehiculos, JTextField matricula, JTextField marca, JTextField capacidad, JTextField modelo, JTextField categoria ) {
+		Connection dbConnection = null;
+		PreparedStatement pst = null; // preparar la trx
+
+		String script = "SELECT * FROM tblvehiculos WHERE idvehiculos = ?";
+
+		try {
+			dbConnection = conectar.conectarBD(); // abrir la conexion
+			pst = dbConnection.prepareStatement(script);
+
+			pst.setInt(1, idvehiculos);
+			ResultSet rs = pst.executeQuery();
+			
+			while (rs.next()) {
+				matricula.setText(rs.getString(2));
+				marca.setText(rs.getString(3));
+				capacidad.setText(rs.getString(4));
+				modelo.setText(rs.getString(5));
+				categoria.setText(rs.getString(6));
+				
+			}
+
+		} catch (SQLException e) {
+			// TODO: handle exception
+			System.out.println(e.getMessage());
+		}
+
 	}
 
  

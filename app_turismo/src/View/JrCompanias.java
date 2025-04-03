@@ -128,7 +128,7 @@ public class JrCompanias extends JFrame {
 				txtFechacreacion.getText(), txtweb.getText());
 			}
 		});
-		btnGuardar.setBounds(71, 321, 89, 73);
+		btnGuardar.setBounds(71, 321, 89, 76);
 		contentPane.add(btnGuardar);
 		
 		JLabel lblNewLabel_1 = new JLabel("ID_Compañia");
@@ -164,7 +164,18 @@ public class JrCompanias extends JFrame {
 			}
 		});
 		btnActualizar.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\Downloads\\actualizar.png"));
-		btnActualizar.setBounds(401, 280, 89, 80);
+		btnActualizar.setBounds(223, 317, 89, 80);
 		contentPane.add(btnActualizar);
+		
+		JButton btnConsultar = new JButton("Consultar");
+		btnConsultar.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				cr.read(Integer.parseInt(txtidcompania.getText()), txtRazonsocial, txtDireccion, txttelefono, txtCorreo, txtFechacreacion, txtweb);
+			}
+		});
+		btnConsultar.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\Downloads\\consulta.png"));
+		btnConsultar.setBounds(398, 321, 89, 76);
+		contentPane.add(btnConsultar);
 	}
 }

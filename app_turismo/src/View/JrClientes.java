@@ -173,7 +173,7 @@ public class JrClientes extends JFrame {
 				
 			}
 		});
-		btnNewButton.setBounds(63, 362, 89, 73);
+		btnNewButton.setBounds(63, 354, 89, 81);
 		contentPane.add(btnNewButton);
 		
 		JLabel lblNewLabel = new JLabel("CLIENTES");
@@ -211,7 +211,18 @@ public class JrClientes extends JFrame {
 			}
 		});
 		btnActualizar.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\Downloads\\actualizar.png"));
-		btnActualizar.setBounds(472, 294, 89, 89);
+		btnActualizar.setBounds(193, 354, 89, 81);
 		contentPane.add(btnActualizar);
+		
+		JButton btnConsultar = new JButton("Consultar");
+		btnConsultar.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				cr.read(Integer.parseInt(txtcodigocliente.getText()), txttipodocumento, txtnumerodocumento, txtnombre, txtapellido, txtdireccio, txteps, txtalergias, txtfechanacimiento, txttelefono, txtestadocivil, txtcorreo);
+			}
+		});
+		btnConsultar.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\Downloads\\consulta.png"));
+		btnConsultar.setBounds(480, 354, 89, 81);
+		contentPane.add(btnConsultar);
 	}
 }
