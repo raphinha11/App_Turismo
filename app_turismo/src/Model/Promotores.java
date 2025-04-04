@@ -135,11 +135,11 @@ public class Promotores {
 Conexion conectar = new Conexion();
 	
 	public void create(String tipodocumento, int numerodocumento, String nombre, String apellido,
-			String direccion, String telefono, String correoperonal, String correocorp, String fechanacimiento) {
+			String direccion, String telefono, String correoperonal, String correocorp, String fechanacimiento, String contrasena) {
 		Connection dbConnetion = null;
 		PreparedStatement pst = null; //preparar la trx
 		
-		String script = "INSERT INTO tblpromotores (tipodocumento, numerodocumento, nombre, apellido, direccion, telefono, correoperonal, correocorp, fechanacimiento) values (?, ?, ?, ?, ?, ?, ?, ?, ?)";
+		String script = "INSERT INTO tblpromotores (tipodocumento, numerodocumento, nombre, apellido, direccion, telefono, correoperonal, correocorp, fechanacimiento, contrasena) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 		
 		try {
 			dbConnetion  = conectar.conectarBD(); //abrir la conexion
@@ -154,6 +154,7 @@ Conexion conectar = new Conexion();
 			pst.setString(7, correoperonal);
 			pst.setString(8, correocorp);
 			pst.setString(9, fechanacimiento);
+			pst.setString(10, contrasena);
 			//
 			pst.executeUpdate();
 			JOptionPane.showConfirmDialog(null, "Registro con exito");

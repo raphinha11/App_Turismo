@@ -17,6 +17,8 @@ import java.awt.event.MouseEvent;
 import javax.swing.ImageIcon;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.awt.Toolkit;
+import java.awt.Color;
 
 public class JrCompanias extends JFrame {
 
@@ -51,71 +53,80 @@ public class JrCompanias extends JFrame {
 	 * Create the frame.
 	 */
 	public JrCompanias() {
+		setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\APRENDIZ\\Downloads\\java.png"));
+		setTitle("Compañias");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 598, 460);
 		contentPane = new JPanel();
+		contentPane.setBackground(new Color(164, 255, 255));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
 		JLabel lblRazonSocial = new JLabel("Razon Social");
-		lblRazonSocial.setBounds(57, 89, 86, 14);
+		lblRazonSocial.setFont(new Font("Times New Roman", Font.BOLD, 13));
+		lblRazonSocial.setBounds(57, 89, 94, 14);
 		contentPane.add(lblRazonSocial);
 		
 		JLabel lblDireccion = new JLabel("Direccion");
-		lblDireccion.setBounds(57, 127, 46, 14);
+		lblDireccion.setFont(new Font("Times New Roman", Font.BOLD, 13));
+		lblDireccion.setBounds(57, 127, 89, 14);
 		contentPane.add(lblDireccion);
 		
 		JLabel lblTelefono = new JLabel("Telefono");
-		lblTelefono.setBounds(57, 163, 46, 14);
+		lblTelefono.setFont(new Font("Times New Roman", Font.BOLD, 13));
+		lblTelefono.setBounds(57, 163, 94, 14);
 		contentPane.add(lblTelefono);
 		
 		JLabel lblCorreo = new JLabel("Correo");
-		lblCorreo.setBounds(57, 203, 46, 14);
+		lblCorreo.setFont(new Font("Times New Roman", Font.BOLD, 13));
+		lblCorreo.setBounds(57, 203, 64, 14);
 		contentPane.add(lblCorreo);
 		
 		JLabel lblFechaCreacion = new JLabel("Fecha De Creacion");
-		lblFechaCreacion.setBounds(57, 243, 94, 14);
+		lblFechaCreacion.setFont(new Font("Times New Roman", Font.BOLD, 13));
+		lblFechaCreacion.setBounds(57, 243, 112, 14);
 		contentPane.add(lblFechaCreacion);
 		
 		JLabel lblWeb = new JLabel("Web");
+		lblWeb.setFont(new Font("Times New Roman", Font.BOLD, 13));
 		lblWeb.setBounds(57, 280, 46, 14);
 		contentPane.add(lblWeb);
 		
 		txtRazonsocial = new JTextField();
 		txtRazonsocial.setColumns(10);
-		txtRazonsocial.setBounds(161, 86, 180, 20);
+		txtRazonsocial.setBounds(179, 86, 180, 20);
 		contentPane.add(txtRazonsocial);
 		
 		txtDireccion = new JTextField();
 		txtDireccion.setColumns(10);
-		txtDireccion.setBounds(161, 124, 180, 20);
+		txtDireccion.setBounds(179, 124, 180, 20);
 		contentPane.add(txtDireccion);
 		
 		txttelefono = new JTextField();
 		txttelefono.setColumns(10);
-		txttelefono.setBounds(161, 160, 112, 20);
+		txttelefono.setBounds(179, 160, 112, 20);
 		contentPane.add(txttelefono);
 		
 		txtCorreo = new JTextField();
 		txtCorreo.setColumns(10);
-		txtCorreo.setBounds(161, 200, 180, 20);
+		txtCorreo.setBounds(179, 200, 180, 20);
 		contentPane.add(txtCorreo);
 		
 		txtFechacreacion = new JTextField();
 		txtFechacreacion.setColumns(10);
-		txtFechacreacion.setBounds(161, 240, 112, 20);
+		txtFechacreacion.setBounds(179, 240, 112, 20);
 		contentPane.add(txtFechacreacion);
 		
 		txtweb = new JTextField();
 		txtweb.setColumns(10);
-		txtweb.setBounds(161, 277, 180, 20);
+		txtweb.setBounds(179, 277, 180, 20);
 		contentPane.add(txtweb);
 		
 		JLabel lblNewLabel = new JLabel("Comapñias");
-		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		lblNewLabel.setBounds(223, 23, 86, 14);
+		lblNewLabel.setFont(new Font("Times New Roman", Font.BOLD, 19));
+		lblNewLabel.setBounds(223, 23, 112, 20);
 		contentPane.add(lblNewLabel);
 		
 		JButton btnGuardar = new JButton("Guardar");
@@ -128,11 +139,12 @@ public class JrCompanias extends JFrame {
 				txtFechacreacion.getText(), txtweb.getText());
 			}
 		});
-		btnGuardar.setBounds(71, 321, 89, 76);
+		btnGuardar.setBounds(57, 317, 89, 80);
 		contentPane.add(btnGuardar);
 		
 		JLabel lblNewLabel_1 = new JLabel("ID_Compañia");
-		lblNewLabel_1.setBounds(409, 76, 86, 14);
+		lblNewLabel_1.setFont(new Font("Times New Roman", Font.BOLD, 13));
+		lblNewLabel_1.setBounds(401, 76, 94, 14);
 		contentPane.add(lblNewLabel_1);
 		
 		txtidcompania = new JTextField();
@@ -164,7 +176,7 @@ public class JrCompanias extends JFrame {
 			}
 		});
 		btnActualizar.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\Downloads\\actualizar.png"));
-		btnActualizar.setBounds(223, 317, 89, 80);
+		btnActualizar.setBounds(184, 317, 89, 80);
 		contentPane.add(btnActualizar);
 		
 		JButton btnConsultar = new JButton("Consultar");
@@ -175,7 +187,7 @@ public class JrCompanias extends JFrame {
 			}
 		});
 		btnConsultar.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\Downloads\\consulta.png"));
-		btnConsultar.setBounds(398, 321, 89, 76);
+		btnConsultar.setBounds(316, 321, 89, 76);
 		contentPane.add(btnConsultar);
 	}
 }

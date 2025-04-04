@@ -15,6 +15,8 @@ import javax.swing.JButton;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import javax.swing.ImageIcon;
+import java.awt.Toolkit;
+import java.awt.Color;
 
 public class JrMedios extends JFrame {
 
@@ -52,19 +54,24 @@ public class JrMedios extends JFrame {
 	 * Create the frame.
 	 */
 	public JrMedios() {
+		setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\APRENDIZ\\Downloads\\java.png"));
+		setTitle("Medios");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 531, 392);
 		contentPane = new JPanel();
+		contentPane.setBackground(new Color(164, 255, 255));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
 		JLabel lblnombre = new JLabel("Nombre");
+		lblnombre.setFont(new Font("Times New Roman", Font.BOLD, 13));
 		lblnombre.setBounds(57, 82, 61, 20);
 		contentPane.add(lblnombre);
 		
 		JLabel lblobservacion = new JLabel("Observacion");
+		lblobservacion.setFont(new Font("Times New Roman", Font.BOLD, 13));
 		lblobservacion.setBounds(52, 143, 80, 20);
 		contentPane.add(lblobservacion);
 		
@@ -79,8 +86,8 @@ public class JrMedios extends JFrame {
 		contentPane.add(txtObservacion);
 		
 		lblNewLabel = new JLabel("MEDIOS");
-		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		lblNewLabel.setBounds(196, 31, 80, 14);
+		lblNewLabel.setFont(new Font("Times New Roman", Font.BOLD, 19));
+		lblNewLabel.setBounds(196, 31, 89, 14);
 		contentPane.add(lblNewLabel);
 		
 		btnGuardar = new JButton("Guardar");
@@ -96,7 +103,8 @@ public class JrMedios extends JFrame {
 		contentPane.add(btnGuardar);
 		
 		JLabel lblidmedio = new JLabel("ID_Tipo_Medios");
-		lblidmedio.setBounds(57, 204, 89, 14);
+		lblidmedio.setFont(new Font("Times New Roman", Font.BOLD, 13));
+		lblidmedio.setBounds(57, 204, 108, 14);
 		contentPane.add(lblidmedio);
 		
 		txtidtipomedio = new JTextField();
@@ -105,7 +113,8 @@ public class JrMedios extends JFrame {
 		txtidtipomedio.setColumns(10);
 		
 		lblNewLabel_1 = new JLabel("ID_Medios");
-		lblNewLabel_1.setBounds(374, 59, 80, 14);
+		lblNewLabel_1.setFont(new Font("Times New Roman", Font.BOLD, 13));
+		lblNewLabel_1.setBounds(370, 61, 96, 14);
 		contentPane.add(lblNewLabel_1);
 		
 		txtidmedios = new JTextField();

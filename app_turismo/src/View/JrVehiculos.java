@@ -15,6 +15,8 @@ import javax.swing.JButton;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import javax.swing.ImageIcon;
+import java.awt.Toolkit;
+import java.awt.Color;
 
 public class JrVehiculos extends JFrame {
 
@@ -49,36 +51,45 @@ public class JrVehiculos extends JFrame {
 	 * Create the frame.
 	 */
 	public JrVehiculos() {
+		setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\APRENDIZ\\Downloads\\java.png"));
+		setTitle("Vehiculos");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 696, 484);
 		contentPane = new JPanel();
+		contentPane.setBackground(new Color(164, 255, 255));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
 		JLabel lblMatricula = new JLabel("Matricula");
-		lblMatricula.setBounds(70, 72, 71, 14);
+		lblMatricula.setFont(new Font("Times New Roman", Font.BOLD, 13));
+		lblMatricula.setBounds(70, 72, 89, 14);
 		contentPane.add(lblMatricula);
 		
 		JLabel lblMarca = new JLabel("Marca");
+		lblMarca.setFont(new Font("Times New Roman", Font.BOLD, 13));
 		lblMarca.setBounds(70, 112, 71, 14);
 		contentPane.add(lblMarca);
 		
 		JLabel lblCapacidad = new JLabel("Capacidad");
-		lblCapacidad.setBounds(70, 157, 71, 14);
+		lblCapacidad.setFont(new Font("Times New Roman", Font.BOLD, 13));
+		lblCapacidad.setBounds(70, 157, 100, 14);
 		contentPane.add(lblCapacidad);
 		
 		JLabel lblModelo = new JLabel("Modelo");
-		lblModelo.setBounds(73, 201, 46, 14);
+		lblModelo.setFont(new Font("Times New Roman", Font.BOLD, 13));
+		lblModelo.setBounds(73, 201, 86, 14);
 		contentPane.add(lblModelo);
 		
 		JLabel lblCategoria = new JLabel("Categoria");
-		lblCategoria.setBounds(70, 238, 71, 14);
+		lblCategoria.setFont(new Font("Times New Roman", Font.BOLD, 13));
+		lblCategoria.setBounds(70, 238, 89, 14);
 		contentPane.add(lblCategoria);
 		
 		JLabel lblIdtipotransporte = new JLabel("ID_Tipo_Transporte");
-		lblIdtipotransporte.setBounds(70, 292, 116, 14);
+		lblIdtipotransporte.setFont(new Font("Times New Roman", Font.BOLD, 13));
+		lblIdtipotransporte.setBounds(70, 292, 146, 14);
 		contentPane.add(lblIdtipotransporte);
 		
 		txtMatricula = new JTextField();
@@ -112,7 +123,7 @@ public class JrVehiculos extends JFrame {
 		contentPane.add(txtIdtipotransporte);
 		
 		JLabel lblNewLabel = new JLabel("Vehiculos");
-		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 17));
+		lblNewLabel.setFont(new Font("Times New Roman", Font.BOLD, 19));
 		lblNewLabel.setBounds(266, 11, 116, 29);
 		contentPane.add(lblNewLabel);
 		
@@ -130,7 +141,8 @@ public class JrVehiculos extends JFrame {
 		contentPane.add(btnGuardar);
 		
 		JLabel lblNewLabel_1 = new JLabel("ID_Vehiculos");
-		lblNewLabel_1.setBounds(568, 264, 77, 14);
+		lblNewLabel_1.setFont(new Font("Times New Roman", Font.BOLD, 13));
+		lblNewLabel_1.setBounds(559, 264, 86, 14);
 		contentPane.add(lblNewLabel_1);
 		
 		txtidvehiculos = new JTextField();

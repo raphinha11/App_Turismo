@@ -15,6 +15,8 @@ import javax.swing.JButton;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import javax.swing.ImageIcon;
+import java.awt.Toolkit;
+import java.awt.Color;
 
 public class JrtipoMedios extends JFrame {
 
@@ -50,20 +52,25 @@ public class JrtipoMedios extends JFrame {
 	 * Create the frame.
 	 */
 	public JrtipoMedios() {
+		setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\APRENDIZ\\Downloads\\java.png"));
+		setTitle("Tipo de Medios");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 483, 343);
 		contentPane = new JPanel();
+		contentPane.setBackground(new Color(164, 255, 255));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
 		JLabel lblNombre = new JLabel("Nombre");
-		lblNombre.setBounds(50, 67, 46, 14);
+		lblNombre.setFont(new Font("Times New Roman", Font.BOLD, 13));
+		lblNombre.setBounds(50, 67, 70, 14);
 		contentPane.add(lblNombre);
 		
 		JLabel lblObservacion = new JLabel("Observacion");
-		lblObservacion.setBounds(50, 127, 70, 14);
+		lblObservacion.setFont(new Font("Times New Roman", Font.BOLD, 13));
+		lblObservacion.setBounds(50, 127, 91, 14);
 		contentPane.add(lblObservacion);
 		
 		txtNombre = new JTextField();
@@ -77,8 +84,8 @@ public class JrtipoMedios extends JFrame {
 		contentPane.add(txtObservacion);
 		
 		JLabel lblNewLabel = new JLabel("Tipos De Medios");
-		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		lblNewLabel.setBounds(151, 11, 129, 26);
+		lblNewLabel.setFont(new Font("Times New Roman", Font.BOLD, 20));
+		lblNewLabel.setBounds(151, 11, 149, 26);
 		contentPane.add(lblNewLabel);
 		
 		btnGuardar = new JButton("Guardar");
@@ -97,7 +104,8 @@ public class JrtipoMedios extends JFrame {
 		contentPane.add(btnGuardar);
 		
 		lblNewLabel_1 = new JLabel("ID_TiposMedios");
-		lblNewLabel_1.setBounds(343, 42, 89, 14);
+		lblNewLabel_1.setFont(new Font("Times New Roman", Font.BOLD, 13));
+		lblNewLabel_1.setBounds(343, 39, 103, 14);
 		contentPane.add(lblNewLabel_1);
 		
 		txtidtipomedio = new JTextField();

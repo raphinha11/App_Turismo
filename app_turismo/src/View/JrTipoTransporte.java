@@ -15,6 +15,8 @@ import javax.swing.JButton;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import javax.swing.ImageIcon;
+import java.awt.Toolkit;
+import java.awt.Color;
 
 public class JrTipoTransporte extends JFrame {
 
@@ -45,25 +47,30 @@ public class JrTipoTransporte extends JFrame {
 	 * Create the frame.
 	 */
 	public JrTipoTransporte() {
+		setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\APRENDIZ\\Downloads\\java.png"));
+		setTitle("Tipos de trasporte");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 589, 339);
 		contentPane = new JPanel();
+		contentPane.setBackground(new Color(164, 255, 255));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
 		JLabel lblNombre = new JLabel("Nombre");
-		lblNombre.setBounds(47, 63, 46, 14);
+		lblNombre.setFont(new Font("Times New Roman", Font.BOLD, 13));
+		lblNombre.setBounds(47, 63, 71, 14);
 		contentPane.add(lblNombre);
 		
 		JLabel lblDescripcion = new JLabel("Descripcion");
+		lblDescripcion.setFont(new Font("Times New Roman", Font.BOLD, 13));
 		lblDescripcion.setBounds(47, 112, 82, 14);
 		contentPane.add(lblDescripcion);
 		
 		JLabel lblTiposDeTransporte = new JLabel("Tipos De Transporte");
-		lblTiposDeTransporte.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		lblTiposDeTransporte.setBounds(150, 11, 140, 19);
+		lblTiposDeTransporte.setFont(new Font("Times New Roman", Font.BOLD, 20));
+		lblTiposDeTransporte.setBounds(150, 11, 194, 19);
 		contentPane.add(lblTiposDeTransporte);
 		
 		txtNombre = new JTextField();
@@ -89,7 +96,8 @@ public class JrTipoTransporte extends JFrame {
 		contentPane.add(btnGuardar);
 		
 		JLabel lblNewLabel = new JLabel("ID_TipoTransporte");
-		lblNewLabel.setBounds(421, 47, 107, 14);
+		lblNewLabel.setFont(new Font("Times New Roman", Font.BOLD, 13));
+		lblNewLabel.setBounds(408, 47, 120, 14);
 		contentPane.add(lblNewLabel);
 		
 		txttipotransporte = new JTextField();

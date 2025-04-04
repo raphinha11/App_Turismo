@@ -14,6 +14,7 @@ import javax.swing.JButton;
 import javax.swing.JPasswordField;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.awt.Font;
 
 public class JrAcceso extends JFrame {
 
@@ -51,15 +52,17 @@ public class JrAcceso extends JFrame {
 		contentPane.setLayout(null);
 		
 		JLabel lblNewLabel = new JLabel("Documento");
-		lblNewLabel.setBounds(49, 48, 67, 14);
+		lblNewLabel.setFont(new Font("Times New Roman", Font.BOLD, 16));
+		lblNewLabel.setBounds(49, 74, 84, 14);
 		contentPane.add(lblNewLabel);
 		
 		JLabel lblContrasea = new JLabel("Contraseña");
-		lblContrasea.setBounds(49, 102, 67, 14);
+		lblContrasea.setFont(new Font("Times New Roman", Font.BOLD, 14));
+		lblContrasea.setBounds(49, 137, 84, 14);
 		contentPane.add(lblContrasea);
 		
 		txtDocumento = new JTextField();
-		txtDocumento.setBounds(143, 45, 180, 20);
+		txtDocumento.setBounds(143, 72, 180, 20);
 		contentPane.add(txtDocumento);
 		txtDocumento.setColumns(10);
 		
@@ -71,15 +74,16 @@ public class JrAcceso extends JFrame {
 				pr.controlAcceso(Integer.parseInt(txtDocumento.getText()), txtContrasena.getText());
 			}
 		});
-		btnIngresar.setBounds(187, 177, 89, 23);
+		btnIngresar.setBounds(173, 186, 89, 23);
 		contentPane.add(btnIngresar);
 		
 		JLabel lblNewLabel_1 = new JLabel("Control de Acceso");
-		lblNewLabel_1.setBounds(187, 11, 95, 14);
+		lblNewLabel_1.setFont(new Font("Times New Roman", Font.BOLD, 20));
+		lblNewLabel_1.setBounds(131, 11, 172, 14);
 		contentPane.add(lblNewLabel_1);
 		
 		txtContrasena = new JPasswordField();
-		txtContrasena.setBounds(143, 99, 180, 20);
+		txtContrasena.setBounds(143, 135, 180, 20);
 		contentPane.add(txtContrasena);
 	}
 }

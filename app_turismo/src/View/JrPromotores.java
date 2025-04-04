@@ -15,6 +15,8 @@ import java.awt.Font;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import javax.swing.ImageIcon;
+import java.awt.Toolkit;
+import java.awt.Color;
 
 public class JrPromotores extends JFrame {
 
@@ -31,6 +33,7 @@ public class JrPromotores extends JFrame {
 	private JTextField txtFechanacimiento;
 	Promotores cr = new Promotores();
 	private JTextField txtidpromotor;
+	private JTextField txtcontrasena;
 
 	/**
 	 * Launch the application.
@@ -52,48 +55,60 @@ public class JrPromotores extends JFrame {
 	 * Create the frame.
 	 */
 	public JrPromotores() {
+		setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\APRENDIZ\\Downloads\\java.png"));
+		setTitle("Promotores");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 677, 513);
 		contentPane = new JPanel();
+		contentPane.setBackground(new Color(164, 255, 255));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
 		JLabel lblTipodocumento = new JLabel("Tipo De Documento");
-		lblTipodocumento.setBounds(69, 51, 109, 14);
+		lblTipodocumento.setFont(new Font("Times New Roman", Font.BOLD, 13));
+		lblTipodocumento.setBounds(69, 51, 136, 14);
 		contentPane.add(lblTipodocumento);
 		
 		JLabel lblNumeroDocumento = new JLabel("Numero De Documento");
-		lblNumeroDocumento.setBounds(69, 93, 120, 14);
+		lblNumeroDocumento.setFont(new Font("Times New Roman", Font.BOLD, 13));
+		lblNumeroDocumento.setBounds(69, 93, 149, 14);
 		contentPane.add(lblNumeroDocumento);
 		
 		JLabel lblNombre = new JLabel("Nombre");
-		lblNombre.setBounds(69, 130, 46, 14);
+		lblNombre.setFont(new Font("Times New Roman", Font.BOLD, 13));
+		lblNombre.setBounds(69, 130, 78, 14);
 		contentPane.add(lblNombre);
 		
 		JLabel lblApellido = new JLabel("Apellido");
-		lblApellido.setBounds(69, 171, 46, 14);
+		lblApellido.setFont(new Font("Times New Roman", Font.BOLD, 13));
+		lblApellido.setBounds(69, 171, 78, 14);
 		contentPane.add(lblApellido);
 		
 		JLabel lblDireccion = new JLabel("Direccion");
-		lblDireccion.setBounds(69, 208, 46, 14);
+		lblDireccion.setFont(new Font("Times New Roman", Font.BOLD, 13));
+		lblDireccion.setBounds(69, 208, 78, 14);
 		contentPane.add(lblDireccion);
 		
 		JLabel lblTelefono = new JLabel("Telefono");
-		lblTelefono.setBounds(69, 245, 46, 14);
+		lblTelefono.setFont(new Font("Times New Roman", Font.BOLD, 13));
+		lblTelefono.setBounds(69, 245, 78, 14);
 		contentPane.add(lblTelefono);
 		
 		JLabel lblCorreoPersonal = new JLabel("Correo Personal");
+		lblCorreoPersonal.setFont(new Font("Times New Roman", Font.BOLD, 13));
 		lblCorreoPersonal.setBounds(69, 281, 109, 14);
 		contentPane.add(lblCorreoPersonal);
 		
 		JLabel lblCorreoCorp = new JLabel("Correo Corp");
+		lblCorreoCorp.setFont(new Font("Times New Roman", Font.BOLD, 13));
 		lblCorreoCorp.setBounds(69, 319, 109, 14);
 		contentPane.add(lblCorreoCorp);
 		
 		JLabel lblFechaNacimiento = new JLabel("Fecha De Nacimiento");
-		lblFechaNacimiento.setBounds(69, 354, 109, 14);
+		lblFechaNacimiento.setFont(new Font("Times New Roman", Font.BOLD, 13));
+		lblFechaNacimiento.setBounds(69, 354, 136, 14);
 		contentPane.add(lblFechaNacimiento);
 		
 		txtTipodocumento = new JTextField();
@@ -148,20 +163,21 @@ public class JrPromotores extends JFrame {
 			public void mouseClicked(MouseEvent e) {
 				
 				cr.create(txtTipodocumento.getText(), Integer.parseInt(txtNumerodocumento.getText()), txtNombre.getText(), txtapellido.getText(), 
-				txtDireccion.getText(), txtTelefono.getText(), txtCorreopersonal.getText(), txtCorreocorp.getText(), txtFechanacimiento.getText());
+				txtDireccion.getText(), txtTelefono.getText(), txtCorreopersonal.getText(), txtCorreocorp.getText(), txtFechanacimiento.getText(), txtcontrasena.getText());
 				
 			}
 		});
-		btnNewButton_1.setBounds(69, 379, 89, 84);
+		btnNewButton_1.setBounds(431, 263, 89, 84);
 		contentPane.add(btnNewButton_1);
 		
 		JLabel lblNewLabel = new JLabel("Promotores");
-		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		lblNewLabel.setBounds(250, 11, 103, 26);
+		lblNewLabel.setFont(new Font("Times New Roman", Font.BOLD, 19));
+		lblNewLabel.setBounds(250, 11, 124, 26);
 		contentPane.add(lblNewLabel);
 		
 		JLabel lblNewLabel_1 = new JLabel("ID_Promotor");
-		lblNewLabel_1.setBounds(500, 51, 86, 14);
+		lblNewLabel_1.setFont(new Font("Times New Roman", Font.BOLD, 13));
+		lblNewLabel_1.setBounds(488, 51, 98, 14);
 		contentPane.add(lblNewLabel_1);
 		
 		txtidpromotor = new JTextField();
@@ -177,7 +193,7 @@ public class JrPromotores extends JFrame {
 			}
 		});
 		btneliminar.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\Downloads\\eliminar (2).png"));
-		btneliminar.setBounds(485, 126, 89, 84);
+		btneliminar.setBounds(543, 263, 89, 84);
 		contentPane.add(btneliminar);
 		
 		JButton btnActualizar = new JButton("Actualizar");
@@ -189,7 +205,7 @@ public class JrPromotores extends JFrame {
 			}
 		});
 		btnActualizar.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\Downloads\\actualizar.png"));
-		btnActualizar.setBounds(238, 382, 89, 73);
+		btnActualizar.setBounds(431, 375, 89, 73);
 		contentPane.add(btnActualizar);
 		
 		JButton btnConsultar = new JButton("Consultar");
@@ -200,8 +216,17 @@ public class JrPromotores extends JFrame {
 			}
 		});
 		btnConsultar.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\Downloads\\consulta.png"));
-		btnConsultar.setBounds(485, 379, 89, 76);
+		btnConsultar.setBounds(543, 373, 89, 76);
 		contentPane.add(btnConsultar);
+		
+		JLabel lblNewLabel_2 = new JLabel("Contraseña");
+		lblNewLabel_2.setFont(new Font("Times New Roman", Font.BOLD, 13));
+		lblNewLabel_2.setBounds(69, 393, 85, 14);
+		contentPane.add(lblNewLabel_2);
+		
+		txtcontrasena = new JTextField();
+		txtcontrasena.setBounds(228, 390, 125, 20);
+		contentPane.add(txtcontrasena);
+		txtcontrasena.setColumns(10);
 	}
-
 }
