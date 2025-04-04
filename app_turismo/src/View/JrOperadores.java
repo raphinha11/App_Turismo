@@ -15,6 +15,8 @@ import java.awt.Font;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import javax.swing.ImageIcon;
+import java.awt.Toolkit;
+import java.awt.Color;
 
 public class JrOperadores extends JFrame {
 
@@ -51,40 +53,50 @@ public class JrOperadores extends JFrame {
 	 * Create the frame.
 	 */
 	public JrOperadores() {
+		setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\APRENDIZ\\Downloads\\java.png"));
+		setTitle("Operadores");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 603, 455);
 		contentPane = new JPanel();
+		contentPane.setBackground(new Color(164, 255, 255));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
 		JLabel lblTipodocumento = new JLabel("Tipo De Documento");
+		lblTipodocumento.setFont(new Font("Times New Roman", Font.BOLD, 13));
 		lblTipodocumento.setBounds(68, 67, 134, 14);
 		contentPane.add(lblTipodocumento);
 		
 		JLabel lblNumeroDocumento = new JLabel("Numero De Documento");
-		lblNumeroDocumento.setBounds(68, 103, 134, 14);
+		lblNumeroDocumento.setFont(new Font("Times New Roman", Font.BOLD, 13));
+		lblNumeroDocumento.setBounds(68, 103, 150, 14);
 		contentPane.add(lblNumeroDocumento);
 		
 		JLabel lblNombre = new JLabel("Nombre");
+		lblNombre.setFont(new Font("Times New Roman", Font.BOLD, 13));
 		lblNombre.setBounds(68, 137, 65, 14);
 		contentPane.add(lblNombre);
 		
 		JLabel lblApellido = new JLabel("Apellido");
+		lblApellido.setFont(new Font("Times New Roman", Font.BOLD, 13));
 		lblApellido.setBounds(68, 174, 65, 14);
 		contentPane.add(lblApellido);
 		
 		JLabel lblDireccion = new JLabel("Direccion");
+		lblDireccion.setFont(new Font("Times New Roman", Font.BOLD, 13));
 		lblDireccion.setBounds(68, 208, 65, 14);
 		contentPane.add(lblDireccion);
 		
 		JLabel lblTelefono = new JLabel("Telefono");
+		lblTelefono.setFont(new Font("Times New Roman", Font.BOLD, 13));
 		lblTelefono.setBounds(68, 244, 65, 14);
 		contentPane.add(lblTelefono);
 		
 		JLabel lblCorreo = new JLabel("Correo");
-		lblCorreo.setBounds(68, 279, 46, 14);
+		lblCorreo.setFont(new Font("Times New Roman", Font.BOLD, 13));
+		lblCorreo.setBounds(68, 279, 75, 14);
 		contentPane.add(lblCorreo);
 		
 		txtTipodocumento = new JTextField();
@@ -136,11 +148,12 @@ public class JrOperadores extends JFrame {
 		contentPane.add(btnGuardar);
 		
 		JLabel lblNewLabel = new JLabel("Operadores");
-		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		lblNewLabel.setBounds(212, 11, 91, 23);
+		lblNewLabel.setFont(new Font("Times New Roman", Font.BOLD, 19));
+		lblNewLabel.setBounds(212, 11, 113, 23);
 		contentPane.add(lblNewLabel);
 		
 		JLabel lblidvehiculo = new JLabel("ID Vehiculo");
+		lblidvehiculo.setFont(new Font("Times New Roman", Font.BOLD, 13));
 		lblidvehiculo.setBounds(431, 67, 75, 14);
 		contentPane.add(lblidvehiculo);
 		
@@ -150,7 +163,8 @@ public class JrOperadores extends JFrame {
 		txtidvehiculo.setColumns(10);
 		
 		JLabel lblNewLabel_1 = new JLabel("ID_Operadores");
-		lblNewLabel_1.setBounds(430, 138, 86, 12);
+		lblNewLabel_1.setFont(new Font("Times New Roman", Font.BOLD, 13));
+		lblNewLabel_1.setBounds(420, 138, 86, 12);
 		contentPane.add(lblNewLabel_1);
 		
 		txtidoperadores = new JTextField();

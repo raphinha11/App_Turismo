@@ -15,6 +15,8 @@ import javax.swing.JButton;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import javax.swing.ImageIcon;
+import java.awt.Toolkit;
+import java.awt.Color;
 
 public class JrPaquetes extends JFrame {
 
@@ -56,36 +58,45 @@ public class JrPaquetes extends JFrame {
 	 * Create the frame.
 	 */
 	public JrPaquetes() {
+		setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\APRENDIZ\\Downloads\\java.png"));
+		setTitle("Paquetes");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 725, 532);
 		contentPane = new JPanel();
+		contentPane.setBackground(new Color(164, 255, 255));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
 		JLabel lblFechaventa = new JLabel("Fecha De Venta");
-		lblFechaventa.setBounds(80, 140, 96, 14);
+		lblFechaventa.setFont(new Font("Times New Roman", Font.BOLD, 13));
+		lblFechaventa.setBounds(80, 140, 120, 14);
 		contentPane.add(lblFechaventa);
 		
 		JLabel lblHoraVenta = new JLabel("Hora De Venta");
-		lblHoraVenta.setBounds(80, 177, 90, 14);
+		lblHoraVenta.setFont(new Font("Times New Roman", Font.BOLD, 13));
+		lblHoraVenta.setBounds(80, 177, 120, 14);
 		contentPane.add(lblHoraVenta);
 		
 		JLabel lblFechaEjecucion = new JLabel("Fecha De Ejecucion");
+		lblFechaEjecucion.setFont(new Font("Times New Roman", Font.BOLD, 13));
 		lblFechaEjecucion.setBounds(80, 254, 120, 17);
 		contentPane.add(lblFechaEjecucion);
 		
 		JLabel lblHoraSalida = new JLabel("Hora De salida");
+		lblHoraSalida.setFont(new Font("Times New Roman", Font.BOLD, 13));
 		lblHoraSalida.setBounds(80, 220, 120, 14);
 		contentPane.add(lblHoraSalida);
 		
 		JLabel lblObcervacion = new JLabel("Observacion");
-		lblObcervacion.setBounds(80, 293, 90, 14);
+		lblObcervacion.setFont(new Font("Times New Roman", Font.BOLD, 13));
+		lblObcervacion.setBounds(80, 293, 120, 14);
 		contentPane.add(lblObcervacion);
 		
 		JLabel lblPrecio = new JLabel("Precio");
-		lblPrecio.setBounds(80, 334, 46, 14);
+		lblPrecio.setFont(new Font("Times New Roman", Font.BOLD, 13));
+		lblPrecio.setBounds(80, 334, 89, 14);
 		contentPane.add(lblPrecio);
 		
 		txtFechaventa = new JTextField();
@@ -139,23 +150,28 @@ public class JrPaquetes extends JFrame {
 		contentPane.add(btnGuardar);
 		
 		JLabel lblcodigocliente = new JLabel("codigocliente");
-		lblcodigocliente.setBounds(457, 81, 70, 14);
+		lblcodigocliente.setFont(new Font("Times New Roman", Font.BOLD, 13));
+		lblcodigocliente.setBounds(457, 81, 87, 14);
 		contentPane.add(lblcodigocliente);
 		
 		JLabel lblidpromotor = new JLabel("idpromotor");
-		lblidpromotor.setBounds(457, 127, 70, 14);
+		lblidpromotor.setFont(new Font("Times New Roman", Font.BOLD, 13));
+		lblidpromotor.setBounds(457, 127, 87, 14);
 		contentPane.add(lblidpromotor);
 		
 		JLabel lblidmedio = new JLabel("idmedio");
-		lblidmedio.setBounds(457, 177, 57, 14);
+		lblidmedio.setFont(new Font("Times New Roman", Font.BOLD, 13));
+		lblidmedio.setBounds(457, 177, 70, 14);
 		contentPane.add(lblidmedio);
 		
 		JLabel lblidagencia = new JLabel("idagencia");
-		lblidagencia.setBounds(457, 223, 70, 14);
+		lblidagencia.setFont(new Font("Times New Roman", Font.BOLD, 13));
+		lblidagencia.setBounds(457, 223, 87, 14);
 		contentPane.add(lblidagencia);
 		
 		JLabel lblidvehiculos = new JLabel("idvehiculos");
-		lblidvehiculos.setBounds(457, 267, 70, 14);
+		lblidvehiculos.setFont(new Font("Times New Roman", Font.BOLD, 13));
+		lblidvehiculos.setBounds(457, 267, 87, 14);
 		contentPane.add(lblidvehiculos);
 		
 		txtcodigocliente = new JTextField();
@@ -184,11 +200,13 @@ public class JrPaquetes extends JFrame {
 		contentPane.add(txtidvehiculos);
 		
 		JLabel lblNewLabel_1 = new JLabel("ID origen");
-		lblNewLabel_1.setBounds(80, 99, 62, 14);
+		lblNewLabel_1.setFont(new Font("Times New Roman", Font.BOLD, 13));
+		lblNewLabel_1.setBounds(80, 99, 96, 14);
 		contentPane.add(lblNewLabel_1);
 		
 		JLabel lblNewLabel_1_1 = new JLabel("ID Destino");
-		lblNewLabel_1_1.setBounds(80, 61, 77, 14);
+		lblNewLabel_1_1.setFont(new Font("Times New Roman", Font.BOLD, 13));
+		lblNewLabel_1_1.setBounds(80, 61, 96, 14);
 		contentPane.add(lblNewLabel_1_1);
 		
 		txtiddestino = new JTextField();
@@ -202,6 +220,7 @@ public class JrPaquetes extends JFrame {
 		contentPane.add(txtidorigen);
 		
 		JLabel lblNewLabel_2 = new JLabel("Codigos");
+		lblNewLabel_2.setFont(new Font("Times New Roman", Font.BOLD, 13));
 		lblNewLabel_2.setBounds(457, 354, 70, 14);
 		contentPane.add(lblNewLabel_2);
 		

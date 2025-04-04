@@ -15,6 +15,11 @@ import javax.swing.JPasswordField;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.Font;
+import java.awt.Color;
+import java.awt.SystemColor;
+import org.eclipse.wb.swing.FocusTraversalOnArray;
+import java.awt.Component;
+import java.awt.Toolkit;
 
 public class JrAcceso extends JFrame {
 
@@ -43,9 +48,13 @@ public class JrAcceso extends JFrame {
 	 * Create the frame.
 	 */
 	public JrAcceso() {
+		setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\APRENDIZ\\Downloads\\java.png"));
+		setTitle("Control de Acesso");
+		setBackground(SystemColor.textHighlight);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
+		contentPane.setBackground(new Color(204, 255, 255));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
 		setContentPane(contentPane);
@@ -85,5 +94,6 @@ public class JrAcceso extends JFrame {
 		txtContrasena = new JPasswordField();
 		txtContrasena.setBounds(143, 135, 180, 20);
 		contentPane.add(txtContrasena);
+		setFocusTraversalPolicy(new FocusTraversalOnArray(new Component[]{contentPane, lblNewLabel, lblContrasea, txtDocumento, btnIngresar, lblNewLabel_1, txtContrasena}));
 	}
 }
