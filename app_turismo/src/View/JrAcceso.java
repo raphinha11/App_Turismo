@@ -78,7 +78,7 @@ public class JrAcceso extends JFrame {
 		
 		JButton btnIngresar = new JButton("Ingresar");
 		btnIngresar.setFont(new Font("Times New Roman", Font.BOLD, 14));
-		btnIngresar.setBackground(new Color(0, 128, 0));
+		btnIngresar.setBackground(new Color(255, 255, 255));
 		btnIngresar.setForeground(new Color(0, 128, 0));
 		btnIngresar.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\Downloads\\marca-de-verificacion.png"));
 		btnIngresar.addMouseListener(new MouseAdapter() {
