@@ -201,7 +201,8 @@ public class JrPromotores extends JFrame {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				cr.update(txtTipodocumento.getText(), Integer.parseInt(txtNumerodocumento.getText()), txtNombre.getText(), txtapellido.getText(), 
-				txtDireccion.getText(), txtTelefono.getText(), txtCorreopersonal.getText(), txtCorreocorp.getText(), txtFechanacimiento.getText());
+				txtDireccion.getText(), txtTelefono.getText(), txtCorreopersonal.getText(), txtCorreocorp.getText(), txtFechanacimiento.getText(),
+				Integer.parseInt(txtidpromotor.getText()));
 			}
 		});
 		btnActualizar.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\Downloads\\actualizar.png"));

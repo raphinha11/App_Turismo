@@ -229,7 +229,7 @@ public class Paquetes {
 	
 	public void update(int iddestino, int idorigen, String fechaventa, String horaventa, String horasalida,
 			String fechaejecucion, String observacion, int codigocliente, int idpromotor, int idmedio, int idagencia,
-			int idvehiculos, double precio) {
+			int idvehiculos, double precio, int codigos) {
 
 		Connection dbConnection = null;
 		PreparedStatement pst = null; // preparar la trx
@@ -255,6 +255,7 @@ public class Paquetes {
 			pst.setInt(11, idagencia);
 			pst.setInt(12, idvehiculos);
 			pst.setDouble(13, precio);
+			pst.setInt(14, codigos);
 			
 			// confirmar la operacion
 			int resp = JOptionPane.showConfirmDialog(null, "¿desea actualizar esta fila?");
@@ -262,6 +263,8 @@ public class Paquetes {
 			if (resp == JOptionPane.OK_OPTION) {
 				pst.executeUpdate();
 				JOptionPane.showConfirmDialog(null, "fila actualizada");
+			}else {
+				JOptionPane.showConfirmDialog(null, "Operacion Cancelada!");
 			}
 
 		} catch (SQLException e) {

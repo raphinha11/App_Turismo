@@ -137,7 +137,7 @@ public class JrMedios extends JFrame {
 		btnActualizar.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				cr.update(txtNombre.getText(), txtObservacion.getText(), Integer.parseInt(txtidtipomedio.getText()));
+				cr.update(txtNombre.getText(), txtObservacion.getText(), Integer.parseInt(txtidtipomedio.getText()), Integer.parseInt(txtidmedios.getText()));
 			}
 		});
 		btnActualizar.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\Downloads\\actualizar.png"));

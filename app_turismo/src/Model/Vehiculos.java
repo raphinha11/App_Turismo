@@ -138,7 +138,7 @@ Conexion conectar = new Conexion();
 	}
 
 	public void update(int matricula, String marca, String capacidad, String modelo, String categoria,
-			int idtipotransporte) {
+			int idtipotransporte, int idvehiculos) {
 
 		Connection dbConnection = null;
 		PreparedStatement pst = null; // preparar la trx
@@ -157,6 +157,7 @@ Conexion conectar = new Conexion();
 			pst.setString(4, modelo);
 			pst.setString(5, categoria);
 			pst.setInt(6, idtipotransporte);
+			pst.setInt(7, idvehiculos);
 	
 			
 			// confirmar la operacion
@@ -165,6 +166,8 @@ Conexion conectar = new Conexion();
 			if (resp == JOptionPane.OK_OPTION) {
 				pst.executeUpdate();
 				JOptionPane.showConfirmDialog(null, "fila actualizada");
+			}else {
+				JOptionPane.showConfirmDialog(null, "Operacion Cancelada!");
 			}
 
 		} catch (SQLException e) {

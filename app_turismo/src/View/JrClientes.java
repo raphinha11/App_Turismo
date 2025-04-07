@@ -224,7 +224,7 @@ public class JrClientes extends JFrame {
 			public void mouseClicked(MouseEvent e) {
 				cr.update(txttipodocumento.getText(), Integer.parseInt(txtnumerodocumento.getText()), txtnombre.getText(), 
 				txtapellido.getText(), txtdireccio.getText(), txteps.getText(), txtalergias.getText(), txtfechanacimiento.getText(), txttelefono.getText(),
-				txtestadocivil.getText(), txtcorreo.getText());
+				txtestadocivil.getText(), txtcorreo.getText(), Integer.parseInt(txtcodigocliente.getText()));
 			}
 		});
 		btnActualizar.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\Downloads\\actualizar.png"));

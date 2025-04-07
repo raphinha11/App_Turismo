@@ -99,7 +99,7 @@ Conexion conectar = new Conexion();
 
 	}
 	
-	public void update(String nombre, String descrpcion) {
+	public void update(String nombre, String descrpcion, int idtipotransporte) {
 
 		Connection dbConnection = null;
 		PreparedStatement pst = null; // preparar la trx
@@ -114,6 +114,7 @@ Conexion conectar = new Conexion();
 
 			pst.setString(1, nombre);
 			pst.setString(2, descrpcion);
+			pst.setInt(3, idtipotransporte);
 	
 			
 			// confirmar la operacion
@@ -122,6 +123,8 @@ Conexion conectar = new Conexion();
 			if (resp == JOptionPane.OK_OPTION) {
 				pst.executeUpdate();
 				JOptionPane.showConfirmDialog(null, "fila actualizada");
+			}else {
+				JOptionPane.showConfirmDialog(null, "Operacion Cancelada!");
 			}
 
 		} catch (SQLException e) {

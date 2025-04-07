@@ -168,7 +168,7 @@ public class JrCompanias extends JFrame {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				cr.update(txtRazonsocial.getText(), txtDireccion.getText(), txttelefono.getText(), txtCorreo.getText(), 
-						txtFechacreacion.getText(), txtweb.getText());
+						txtFechacreacion.getText(), txtweb.getText(), Integer.parseInt(txtidcompania.getText()));
 			}
 		});
 		btnActualizar.addActionListener(new ActionListener() {

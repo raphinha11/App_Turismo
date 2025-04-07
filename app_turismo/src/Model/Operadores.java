@@ -171,7 +171,7 @@ public class Operadores {
 	}
 	
 	public void update(String tipodocumento, int documento, String nombre, String apellido, String direccion,
-			String telefono, String correo, int idvehiculos) {
+			String telefono, String correo, int idvehiculos, int idpromotor) {
 
 		Connection dbConnection = null;
 		PreparedStatement pst = null; // preparar la trx
@@ -192,6 +192,7 @@ public class Operadores {
 			pst.setString(6, telefono);
 			pst.setString(7, correo);
 			pst.setInt(8, idvehiculos);
+			pst.setInt(9, idpromotor);
 			
 			// confirmar la operacion
 			int resp = JOptionPane.showConfirmDialog(null, "¿desea actualizar esta fila?");
@@ -199,6 +200,8 @@ public class Operadores {
 			if (resp == JOptionPane.OK_OPTION) {
 				pst.executeUpdate();
 				JOptionPane.showConfirmDialog(null, "fila actualizada");
+			}else {
+				JOptionPane.showConfirmDialog(null, "Operacion Cancelada!");
 			}
 
 		} catch (SQLException e) {

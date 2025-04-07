@@ -247,7 +247,7 @@ public class JrPaquetes extends JFrame {
 				cr.update(Integer.parseInt(txtiddestino.getText()), Integer.parseInt(txtidorigen.getText()) , txtFechaventa.getText(), txthoraventa.getText(), txtHorasalida.getText(), txtFechaejecucion.getText(),
 				txtObservacion.getText(), Integer.parseInt(txtcodigocliente.getText()), Integer.parseInt(txtidpromotor.getText()),
 				Integer.parseInt(txtidmedio.getText()), Integer.parseInt(txtidagencia.getText()), Integer.parseInt(txtidvehiculos.getText()),
-				Integer.parseInt(txtPrecio.getText()));
+				Integer.parseInt(txtPrecio.getText()), Integer.parseInt(txtcodigos.getText()));
 			}
 		});
 		btnActualizar.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\Downloads\\actualizar.png"));

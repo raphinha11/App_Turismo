@@ -96,7 +96,7 @@ public class TipoMedios {
 
 	}
 
-	public void update(String nombre, String observacion) {
+	public void update(String nombre, String observacion, int idtipomedio) {
 
 		Connection dbConnection = null;
 		PreparedStatement pst = null; // preparar la trx
@@ -109,9 +109,10 @@ public class TipoMedios {
 
 			// parametrizar el campo
 
+			
 			pst.setString(1, nombre);
 			pst.setString(2, observacion);
-	
+			pst.setInt(3, idtipomedio);
 			
 			// confirmar la operacion
 			int resp = JOptionPane.showConfirmDialog(null, "¿desea actualizar esta fila?");
@@ -119,6 +120,8 @@ public class TipoMedios {
 			if (resp == JOptionPane.OK_OPTION) {
 				pst.executeUpdate();
 				JOptionPane.showConfirmDialog(null, "fila actualizada");
+			}else {
+				JOptionPane.showConfirmDialog(null, "Operacion Cancelada!");
 			}
 
 		} catch (SQLException e) {

@@ -188,7 +188,8 @@ public class JrOperadores extends JFrame {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				cr.update(txtTipodocumento.getText(), Integer.parseInt(txtNumerodocumento.getText()), txtNombre.getText(),
-				txtApellido.getText(), txtDireccion.getText(), txtTelefono.getText(), txtCorreo.getText(), Integer.parseInt(txtidvehiculo.getText()));
+				txtApellido.getText(), txtDireccion.getText(), txtTelefono.getText(), txtCorreo.getText(), Integer.parseInt(txtidvehiculo.getText()),
+				Integer.parseInt(txtidoperadores.getText()));
 			}
 		});
 		btnActualizar.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\Downloads\\actualizar.png"));

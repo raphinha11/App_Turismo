@@ -120,7 +120,7 @@ public class JrTipoTransporte extends JFrame {
 		btnActualizar.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				cr.update(txtNombre.getText(), txtDescripcion.getText());
+				cr.update(txtNombre.getText(), txtDescripcion.getText(), Integer.parseInt(txttipotransporte.getText()));
 			}
 		});
 		btnActualizar.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\Downloads\\actualizar.png"));

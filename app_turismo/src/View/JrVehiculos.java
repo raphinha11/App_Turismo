@@ -166,7 +166,8 @@ public class JrVehiculos extends JFrame {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				cr.update(Integer.parseInt(txtMatricula.getText()), txtMarca.getText(), txtCapacidad.getText(),
-				txtModelo.getText(), txtCategoria.getText(), Integer.parseInt(txtIdtipotransporte.getText()));
+				txtModelo.getText(), txtCategoria.getText(), Integer.parseInt(txtIdtipotransporte.getText()), 
+				Integer.parseInt(txtidvehiculos.getText()));
 			}
 		});
 		btnActualizar.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\Downloads\\actualizar.png"));

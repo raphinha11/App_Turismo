@@ -175,7 +175,7 @@ public class JrAgencias extends JFrame {
 		btnActualizar.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				cr.update(txtNombre.getText(), txtDireccion.getText(), txtTelefono.getText(), txtCorreo.getText(), txtWeb.getText(), Integer.parseInt(txtidcompania.getText()));
+				cr.update(txtNombre.getText(), txtDireccion.getText(), txtTelefono.getText(), txtCorreo.getText(), txtWeb.getText(), Integer.parseInt(txtidcompania.getText()), Integer.parseInt(txtidagencia.getText()));
 			}
 		});
 		btnActualizar.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\Downloads\\actualizar.png"));

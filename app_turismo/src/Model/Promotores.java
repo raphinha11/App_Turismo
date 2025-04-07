@@ -194,12 +194,12 @@ Conexion conectar = new Conexion();
 	}
 
 	public void update(String tipodocumento, int numerodocumento, String nombre, String apellido,
-			String direccion, String telefono, String correoperonal, String correocorp, String fechanacimiento) {
+			String direccion, String telefono, String correoperonal, String correocorp, String fechanacimiento, int idpromotor) {
 
 		Connection dbConnection = null;
 		PreparedStatement pst = null; // preparar la trx
 
-		String script = "UPDATE tblpromotores SET tipodocumento = ?, numerodocumento = ?, nombre = ?, apellido = ?, direccion = ?, telefono = ?, correoperonal = ?, correocorp = ?, fechanacimiento = ? WHERE codigos = ?";
+		String script = "UPDATE tblpromotores SET tipodocumento = ?, numerodocumento = ?, nombre = ?, apellido = ?, direccion = ?, telefono = ?, correoperonal = ?, correocorp = ?, fechanacimiento = ? WHERE idpromotor = ?";
 
 		try {
 			dbConnection = conectar.conectarBD(); // abrir la conexion
@@ -216,6 +216,7 @@ Conexion conectar = new Conexion();
 			pst.setString(7, correoperonal);
 			pst.setString(8, correocorp);
 			pst.setString(9, fechanacimiento);
+			pst.setInt(10, idpromotor);
 		
 			
 			// confirmar la operacion
@@ -224,6 +225,8 @@ Conexion conectar = new Conexion();
 			if (resp == JOptionPane.OK_OPTION) {
 				pst.executeUpdate();
 				JOptionPane.showConfirmDialog(null, "fila actualizada");
+			}else {
+				JOptionPane.showConfirmDialog(null, "Operacion Cancelada!");
 			}
 
 		} catch (SQLException e) {

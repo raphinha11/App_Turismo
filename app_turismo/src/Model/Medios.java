@@ -106,7 +106,7 @@ Conexion conectar = new Conexion();
 		}
 
 	}
-	public void update(String nombre, String obsrvacion, int idtipomedio) {
+	public void update(String nombre, String obsrvacion, int idtipomedio, int idmedio) {
 
 		Connection dbConnection = null;
 		PreparedStatement pst = null; // preparar la trx
@@ -122,6 +122,7 @@ Conexion conectar = new Conexion();
 			pst.setString(1, nombre);
 			pst.setString(2, obsrvacion);
 			pst.setInt(3, idtipomedio);
+			pst.setInt(4, idmedio);
 			
 			// confirmar la operacion
 			int resp = JOptionPane.showConfirmDialog(null, "¿desea actualizar esta fila?");
@@ -129,6 +130,8 @@ Conexion conectar = new Conexion();
 			if (resp == JOptionPane.OK_OPTION) {
 				pst.executeUpdate();
 				JOptionPane.showConfirmDialog(null, "fila actualizada");
+			}else {
+				JOptionPane.showConfirmDialog(null, "Operacion Cancelada!");
 			}
 
 		} catch (SQLException e) {
