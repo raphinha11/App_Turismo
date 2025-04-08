@@ -17,6 +17,8 @@ import java.awt.event.ActionEvent;
 import java.awt.Color;
 import org.eclipse.wb.swing.FocusTraversalOnArray;
 import java.awt.Component;
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
 
 public class JrPrincipal extends JFrame {
 

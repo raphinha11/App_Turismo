@@ -9,6 +9,7 @@ import javax.swing.border.EmptyBorder;
 import Model.Promotores;
 
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 import javax.swing.JPasswordField;
@@ -86,9 +87,12 @@ public class JrAcceso extends JFrame {
 			public void mouseClicked(MouseEvent e) {
 				Promotores pr = new Promotores();
 				pr.controlAcceso(Integer.parseInt(txtDocumento.getText()), txtContrasena.getText());
+				dispose();
+				
 			}
+			
 		});
-		btnIngresar.setBounds(144, 194, 113, 33);
+		btnIngresar.setBounds(140, 194, 125, 33);
 		contentPane.add(btnIngresar);
 		
 		JLabel lblNewLabel_1 = new JLabel("Control de Acceso");

@@ -251,17 +251,22 @@ Conexion conectar = new Conexion();
 			
 			ResultSet rs = pst.executeQuery(); //Almacenamiento temporal
 			
-			while (rs.next()) {
+			if (rs.next()) {
 				principal.show();
 			//	JOptionPane.showConfirmDialog(null, "Acceso Permitido");
 				
-			}	
+			}	else {
+				JOptionPane.showConfirmDialog(null, "Documento o Contraseña Incorrecta, Vuelva a interlo!");
+			}
+				
+			
 
 		} catch (SQLException e) {
 			// TODO: handle exception
 			System.out.println(e.getMessage());
 		}
 	}
+	
 	
 	public void read(int idpromotor, JTextField tipodocumento, JTextField numerodocumento, JTextField nombre, JTextField apellido, JTextField direccion, JTextField telefono, JTextField correoperonal, JTextField correocorp, JTextField fechanacimiento) {
 		Connection dbConnection = null;
